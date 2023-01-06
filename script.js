@@ -85,5 +85,6 @@ $("#selectWindow").on('click', '#backBut', function() {
     var button4 = $('<button></button>').text("Save & Quit");
     button4.attr("class", "menuButton");
     button4.attr("id", "quitBut");
+    button4.attr("value", "logoutBut");
     $('#selectWindow').append(button1, button2, button3, button4);
 })

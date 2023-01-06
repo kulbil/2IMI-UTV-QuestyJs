@@ -34,7 +34,9 @@
             <button class="menuButton" id="fightBut">Fight</button>
             <button class="menuButton" id="itemsBut">Items</button>
             <button class="menuButton" id="runBut">Run</button>
-            <button class="menuButton" id="quitBut">Save & Quit</button>
+            <form method="post">
+            <button class="menuButton" id="quitBut" value="logoutBut">Save & Quit</button>
+            </form>
         </div>
     </div>
 </div>
