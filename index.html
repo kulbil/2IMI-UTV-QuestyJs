@@ -29,6 +29,7 @@
                     </div>
                     <div id="monsterStats">
                         <p>50</p>
+                    </br>
                         <p>9</p>
                     </div>
                 </div>
@@ -37,14 +38,15 @@
                 </div>
             </div>
             <div id="selectWindow">
-                <button name="option" value="submitFight" onclick="test()">Fight</button>
-                <button name="option" value="submitItems">Items</button>
-                <button name="option" value="submitRun">Run</button>
-                <button name="option" value="submitQuit">Save & Quit</button>
+                <button class="menuButton" id="fightBut">Fight</button>
+                <button class="menuButton" id="itemsBut">Items</button>
+                <button class="menuButton" id="runBut">Run</button>
+                <button class="menuButton" id="quitBut">Save & Quit</button>
             </div>
         </div>
     </div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="classes/weapon.js"></script>
     <script src="classes/monster.js"></script>
     <script src="classes/player.js"></script>

@@ -5,7 +5,7 @@ class monster {
         this.strength = strength;
     }
 
-    test(dmg) {
+    damaged(dmg) {
         this.health -= dmg;
         return this.health;
     }
