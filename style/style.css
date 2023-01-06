@@ -2,7 +2,7 @@ body {
     margin: 0;
 }
 
-#monsterStats ,#monsterName ,#gameWrapper ,#gameSCLeft ,#gameSCRight ,#gameInfoWindow ,#playerItemInfoWindow ,#monsterWindow ,#selectWindow div ,#selectWindow ,#monsterWindowTop ,#monsterWindowBottom ,.selectOption {
+#monsterStats ,#monsterName ,#gameWrapper ,#gameSCLeft ,#gameSCRight ,#gameInfoWindow ,#playerItemInfoWindow ,#monsterWindow ,#selectWindow button ,#selectWindow ,#monsterWindowTop ,#monsterWindowBottom ,.selectOption {
     display: flex;
 }
 
@@ -27,6 +27,7 @@ body {
 #gameInfoWindow {
     flex: 8;
     background-color: #3B3B3B;
+    overflow: auto;
 }
 
 #gameInfoWindow p {
@@ -60,7 +61,7 @@ body {
 
 #monsterWindowTop {
     flex: 1;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: Calibri;
 }
 
 #monsterName {
