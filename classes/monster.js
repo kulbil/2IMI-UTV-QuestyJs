@@ -1,7 +1,12 @@
 class monster {
-    constructor(name, strength, health) {
+    constructor(name, health, strength) {
         this.name = name;
-        this.strength = strength;
         this.health = health;
+        this.strength = strength;
+    }
+
+    test(dmg) {
+        this.health -= dmg;
+        return this.health;
     }
 }
