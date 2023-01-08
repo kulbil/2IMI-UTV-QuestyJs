@@ -9,9 +9,9 @@
             <p>INFO WINDOW</p>
         </div>
         <div id="playerItemInfoWindow">
-            <p>Room: 1</p>
-            <p>HP: 100</p>
-            <p>Weapon: Stick(5)</p>
+            <p id="roomPIIW">Room: </p>
+            <p id="hpPIIW">HP: </p>
+            <p id="weaponPIIW">Weapon: </p>
         </div>
     </div>
     <div id="gameSCRight">
@@ -21,9 +21,8 @@
                     Garmadon
                 </div>
                 <div id="monsterStats">
-                    <p>50</p>
-                </br>
-                    <p>9</p>
+                    <p id="healthMonSts">Health: </p>
+                    <p id="strengthMonSts">Strength: </p>
                 </div>
             </div>
             <div id="monsterWindowBottom">
@@ -34,20 +33,36 @@
             <button class="menuButton" id="fightBut">Fight</button>
             <button class="menuButton" id="itemsBut">Items</button>
             <button class="menuButton" id="runBut">Run</button>
-            <form method="post">
-            <button class="menuButton" id="quitBut" value="logoutBut">Save & Quit</button>
-            </form>
+            <button class="menuButton" id="quitBut">Save & Quit</button>
         </div>
     </div>
 </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="classes/weapon.js"></script>
-    <script src="classes/monster.js"></script>
-    <script src="classes/player.js"></script>
-    <script src="classes/room.js"></script>
-    <script src="script.js"></script>
+<?php
+    echo '<form id="playerDataTransfer" action="includes/dataTransfer.inc.php" method="GET">';
+    echo '<input id="php2jsData" type="hidden" name="php2js" value="'.$_SESSION['userplayerdata'].'"></input>';
+    echo '<input id="php2jsUid" type="hidden" name="php2js" value="'.$_SESSION['useruid'].'"></input>';
+    echo '<input id="js2phpData" type="hidden" name="js2phpData" value=""></input>';
+    echo '</form>';
+    
+    echo '<form method="get" id="highScoreTransfer" action="includes/highScoreTransfer.inc.php">';
+    echo '<input id="php2jsHs" type="hidden" name="php2js" value="'.$_SESSION['userhighscore'].'"></input>';
+    echo '<input id="js2phpHs" type="hidden" name="js2phpHs" value=""></input>';
+    echo '</form>';
+    
+    echo '<form method="get" id="quitForm" action="includes/logout.inc.php">';
+    echo '<input id="quitInput" type="hidden" name="quitInput" value=""></input>';
+    echo '</form>';
+?>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="classes/weapon.js"></script>
+<script src="classes/monster.js"></script>
+<script src="classes/player.js"></script>
+<script src="classes/room.js"></script>
+<script src="script.js"></script>
 
 <?php
     include_once 'footer.php';
-?>
+?> 

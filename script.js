@@ -1,7 +1,17 @@
+//Objects------------------------------------------------------------------------
+
 //player(name, health, weapon, healing, zeus)
 //weapon(name, damage)
 //monster(name, strength, health)
-//room()
+//room(number, monster, weapon)
+
+var playerData = JSON.parse(document.getElementById('php2jsData').value);
+var playerName = document.getElementById('php2jsUid').value;
+var highScore = document.getElementById('php2jsHs').value;
+console.log(playerName);
+console.log(playerData);
+console.log(highScore);
+//PlayerData[room, health, weapon, healing, zeus]
 
 var weaponList = [];
 weaponList.push(new weapon("Stick", 5));
@@ -13,20 +23,96 @@ monsterList.push(new monster("Garmadon", 24, 5));
 monsterList.push(new monster("SanchayDenSure", 10, 4));
 monsterList.push(new monster("Jwoodh", 13, 8)); 
 
-const monster1 = new monster("Garmadon", 24, 5)
+var currentRoom;
+var currentPlayer;
 
-console.log(monster1.damaged(2));
-console.log(monster1.damaged(2));
-console.log(monster1.damaged(2));
+//Functions------------------------------------------------------------------------
 
+function createPlayer() {
+    currentPlayer = new player(playerName, playerData[1], playerData[2], playerData[3], playerData[4])
+}
+
+function saveData() {
+    playerData[0] = currentRoom.number;
+    playerData[1] = currentPlayer.health;
+    playerData[2] = currentPlayer.weapon;
+    playerData[3] = currentPlayer.healing;
+    playerData[4] = currentPlayer.zeus;
+    document.getElementById("js2phpData").value = JSON.stringify(playerData);
+    document.forms["playerDataTransfer"].submit();
+}
+
+function createRoom() {
+    var roomMonster = monsterList[Math.floor(Math.random() * monsterList.length)];
+    var roomWeapon =  weaponList[Math.floor(Math.random() * weaponList.length)];
+    currentRoom = new room(playerData[0], roomMonster, roomWeapon);
+}
+
+function updPIIW() {
+    $("#roomPIIW").text("Room: " + currentRoom.number);
+    $("#hpPIIW").text("HP: " + currentPlayer.health);
+    $("#weaponPIIW").text("Weapon " + weaponList[playerData[2]].name + "(" + weaponList[playerData[2]].damage + ")")
+}
+
+function updMonSts() {
+    $("#monsterName").text(currentRoom.monster.name);
+    $("#healthMonSts").text("Health " + currentRoom.monster.health);
+    $("#strengthMonSts").text("Strength " + currentRoom.monster.strength);
+}
+
+function gameOver() {
+    //if(highScore < currentRoom.number) {
+        highScore = currentRoom;
+        document.getElementById('js2phpHs').value = highScore;
+        document.forms["highScoreTransfer"].submit();
+    //}
+
+    currentRoom.number = 0;
+    currentRoom.monster = monsterList[Math.floor(Math.random() * monsterList.length)];
+    currentRoom.weapon = weaponList[Math.floor(Math.random() * weaponList.length)];
+    
+    currentPlayer.health = 100;
+    currentPlayer.weapon = 0;
+    currentPlayer.healing = 5;
+    currentPlayer.zeus = 1;
+    alert("du døde");
+    //saveData();
+    
+}
+
+function monsterTurn() {
+    updGameIW("Monster attacked!")
+    currentPlayer.damaged(currentRoom.monster.strength);
+    if(currentPlayer.health <= 0) {
+        gameOver();
+    }
+    
+}
+
+function updGameIW(text) {
+    var addedInfo = $('<p></p>').text(text);
+    addedInfo.attr("class", "addedInfo");
+    $('#gameInfoWindow').append(addedInfo);
+    var objDiv = document.getElementById("gameInfoWindow");
+    objDiv.scrollTop = objDiv.scrollHeight;
+}
+
+createPlayer();
+createRoom();
+updMonSts();
+updPIIW();
+
+//Button-Events------------------------------------------------------------------------
 
 $("#selectWindow").on('click', '#fightBut', function() {
     console.log("fight")
+
 })
 
 $("#selectWindow").on('click', '#itemsBut', function() {
     console.log("items")
     $('.menuButton').remove();
+    $('#buttonForm').remove();
 
     var button1 = $('<button></button>').text("Healing Potion X5");
     button1.attr("class", "menuButton");
@@ -47,11 +133,19 @@ $("#selectWindow").on('click', '#itemsBut', function() {
 })
 
 $("#selectWindow").on('click', '#runBut', function() {
-    console.log("run")
+    console.log("run");
+    console.log(playerData);
+    console.log(currentRoom);
+    currentRoom.number += 1;
+    monsterTurn();
+    updPIIW();
 })
 
 $("#selectWindow").on('click', '#quitBut', function() {
-    console.log("quit")
+    console.log("quit");
+    saveData();
+    document.getElementById("quitInput").value = JSON.stringify(playerData);
+    document.forms["quitForm"].submit();
 })
 
 $("#selectWindow").on('click', '#healingBut', function() {
@@ -60,6 +154,7 @@ $("#selectWindow").on('click', '#healingBut', function() {
 
 $("#selectWindow").on('click', '#strengthBut', function() {
     console.log("strength")
+    saveData();
 })
 
 $("#selectWindow").on('click', '#zeusBut', function() {
@@ -85,6 +180,15 @@ $("#selectWindow").on('click', '#backBut', function() {
     var button4 = $('<button></button>').text("Save & Quit");
     button4.attr("class", "menuButton");
     button4.attr("id", "quitBut");
-    button4.attr("value", "logoutBut");
-    $('#selectWindow').append(button1, button2, button3, button4);
+    button4.attr("name", "buttonName");
+
+    var buttonForm = $('<form></form>');
+    buttonForm.attr("method", "post");
+    buttonForm.attr("id", "buttonForm");
+    buttonForm.attr("action", "includes/logout.inc.php");
+    buttonForm.append(button4);
+
+    $('#selectWindow').append(button1, button2, button3, buttonForm);
 })
+
+//------------------------------------------------------------------------

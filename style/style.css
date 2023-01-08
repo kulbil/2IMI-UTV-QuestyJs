@@ -3,7 +3,7 @@ body {
 }
 
 /*display flex*/
-#wrapper ,#signupBox form ,#signupBox, #loginMethodBox ,#wrapper {
+#selectWindow form ,#wrapper ,#signupBox form ,#signupBox, #loginMethodBox ,#wrapper {
     display: flex;
 }
 
@@ -99,11 +99,18 @@ body {
 
 #gameInfoWindow {
     flex: 8;
+    flex-direction: column;
+    overflow: auto;
     background-color: #3B3B3B;
     font-family: Calibri;
     font-size: 3vh;
     color: white;
     padding-left: 3vw;
+}
+
+.addedInfo {
+    margin-bottom: 2px;
+    margin-top: 2px;
 }
 
 #playerItemInfoWindow {
@@ -140,10 +147,12 @@ body {
 
 #monsterStats {
     flex: 1;
-    justify-content: end;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
     margin-right: 2vw;
 }
+
 
 #monsterWindowBottom {
     flex: 5;
@@ -172,6 +181,20 @@ body {
     border-radius: 30vh;
     height: 32%;
     width: 40%;
+    background-color: red;
+    font-size: 130%;
+}
+
+#selectWindow form {
+    height: 32%;
+    width: 40%;
+}
+
+#selectWindow form button {
+    border: 0px;
+    border-radius: 30vh;
+    height: 100%;
+    width: 100%;
     background-color: red;
     font-size: 130%;
 }

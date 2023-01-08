@@ -46,7 +46,7 @@ function createUser($name, $uid, $pwd) {
 
     $playerData = array(0, 100, 0, 5, 1);
 
-    $playerDataSer = serialize($playerData);
+    $playerDataSer = json_encode($playerData);
 
 
     $sql = "INSERT INTO users (name, uid, userpwd, playerdata, highscore, joindate) VALUES (?, ?, ?, ?, 0, now());";
@@ -100,10 +100,10 @@ function logoutUser() {
 
     updDb();
 
-    session_start();
-    session_unset();
+    if(!isset($_SESSION)) { 
+        session_start(); 
+    }
     session_destroy();
-
     header("location: ../index.php");
 }
 
@@ -126,33 +126,23 @@ function updDb() {
 
 //resetter alt av spiller stats og lagrer det i databasen.
 //lagrer også highscore i databasen
-function gameOver() {
+function updHs() {
     if(!isset($_SESSION)) 
     { 
         session_start(); 
     }
     
-    $player = unSerPlayer();
-    $highScore = $player->room;
     $playerId = $_SESSION["userid"];
-    $oldHighscore = $_SESSION["userhighscore"];
+    $highscore = $_SESSION["userhighscore"];
     
     
-    if ((isset($oldHighscore)) && ($oldHighscore < $highScore)) {
+    if (isset($Highscore)) {
         $sql = "UPDATE users SET highscore=? where id=?";
         $stmt = $GLOBALS['conn']->prepare($sql);
     
         $stmt->bind_param("ii", $highScore, $playerId);
         $stmt->execute();
     }
-
-    updatePlayer("room", 0);
-    updatePlayer("health", 100);
-    updatePlayer("weapon", 0);
-    updatePlayer("healing", 5);
-    updatePlayer("zeus", 1);
-
-    logoutUser();
     
 }
 
