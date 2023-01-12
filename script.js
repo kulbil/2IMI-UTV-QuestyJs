@@ -165,30 +165,23 @@ $("#selectWindow").on('click', '#backBut', function() {
     console.log("back")
     $('.menuButton').remove();
 
-    var button1 = $('<button></button>').text("Fight");
+    var button1 = $('<button></button>');
     button1.attr("class", "menuButton");
     button1.attr("id", "fightBut");
 
-    var button2 = $('<button></button>').text("Items");
+    var button2 = $('<button></button>');
     button2.attr("class", "menuButton");
     button2.attr("id", "itemsBut");
 
-    var button3 = $('<button></button>').text("Run");
+    var button3 = $('<button></button>');
     button3.attr("class", "menuButton");
     button3.attr("id", "runBut");
 
     var button4 = $('<button></button>').text("Save & Quit");
     button4.attr("class", "menuButton");
     button4.attr("id", "quitBut");
-    button4.attr("name", "buttonName");
 
-    var buttonForm = $('<form></form>');
-    buttonForm.attr("method", "post");
-    buttonForm.attr("id", "buttonForm");
-    buttonForm.attr("action", "includes/logout.inc.php");
-    buttonForm.append(button4);
-
-    $('#selectWindow').append(button1, button2, button3, buttonForm);
+    $('#selectWindow').append(button1, button2, button3, button4);
 })
 
 //------------------------------------------------------------------------

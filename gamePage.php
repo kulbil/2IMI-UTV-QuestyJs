@@ -30,9 +30,9 @@
             </div>
         </div>
         <div id="selectWindow">
-            <button class="menuButton" id="fightBut">Fight</button>
-            <button class="menuButton" id="itemsBut">Items</button>
-            <button class="menuButton" id="runBut">Run</button>
+            <button class="menuButton" id="fightBut"></button>
+            <button class="menuButton" id="itemsBut"></button>
+            <button class="menuButton" id="runBut"></button>
             <button class="menuButton" id="quitBut">Save & Quit</button>
         </div>
     </div>

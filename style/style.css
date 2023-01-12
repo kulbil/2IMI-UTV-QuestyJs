@@ -177,24 +177,55 @@ body {
 }
 
 #selectWindow button {
+    background-color: #949494;
     border: 0px;
-    border-radius: 30vh;
-    height: 32%;
+    height: 40%;
     width: 40%;
-    background-color: red;
     font-size: 130%;
 }
 
-#selectWindow form {
-    height: 32%;
-    width: 40%;
-}
-
-#selectWindow form button {
-    border: 0px;
-    border-radius: 30vh;
+.menuButton {
+    background-repeat: no-repeat, repeat;
+    background-size: 73%;
+    background-position: center;
     height: 100%;
-    width: 100%;
-    background-color: red;
-    font-size: 130%;
+} 
+
+/*Fight Button-----------------------------------------------------------------------------------*/
+#fightBut {
+    background-image: url("../../QuestyjsAssets/UI/SelectVewButtons/Fight/FightBut.png");
 }
+#fightBut:hover {
+    background-image: url("../../QuestyjsAssets/UI/SelectVewButtons/Fight/FightButHover.png");
+}
+#fightBut:active {
+    background-image: url("../../QuestyjsAssets/UI/SelectVewButtons/Fight/FightButPressed.png");
+}
+/*-----------------------------------------------------------------------------------------------*/
+
+/*Run Button-------------------------------------------------------------------------------------*/
+#runBut {
+    background-image: url("../../QuestyjsAssets/UI/SelectVewButtons/Run/RunBut.png");
+}
+#runBut:hover {
+    background-image: url("../../QuestyjsAssets/UI/SelectVewButtons/Run/RunButHover.png");
+    
+}
+#runBut:active {
+    background-image: url("../../QuestyjsAssets/UI/SelectVewButtons/Run/RunButPressed.png");
+}
+/*-----------------------------------------------------------------------------------------------*/
+
+
+/*Items Button-----------------------------------------------------------------------------------*/
+#itemsBut {
+    background-image: url("../../QuestyjsAssets/UI/SelectVewButtons/Items/ItemsBut.png");
+}
+#itemsBut:hover {
+    background-image: url("../../QuestyjsAssets/UI/SelectVewButtons/Items/ItemsButHover.png");
+    
+}
+#itemsBut:active {
+    background-image: url("../../QuestyjsAssets/UI/SelectVewButtons/Items/ItemsButPressed.png");
+}
+/*-----------------------------------------------------------------------------------------------*/
