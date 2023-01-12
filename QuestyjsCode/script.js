@@ -177,7 +177,7 @@ $("#selectWindow").on('click', '#backBut', function() {
     button3.attr("class", "menuButton");
     button3.attr("id", "runBut");
 
-    var button4 = $('<button></button>').text("Save & Quit");
+    var button4 = $('<button></button>');
     button4.attr("class", "menuButton");
     button4.attr("id", "quitBut");
 

@@ -117,13 +117,14 @@ body {
     flex: 3;
     background-color: #9E9E9E;
     flex-direction: column;
-    justify-content: space-around;   
+    justify-content: space-around;
 }
 
 #playerItemInfoWindow p {
     font-size: 200%;
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
+    margin-left: 2vw;
 }
 
 #monsterWindow {
@@ -174,10 +175,14 @@ body {
     align-items: center;
     height: 100%;
     width: 100%;
+    background-image: url("../../QuestyjsAssets/UI/Backgrounds/SelectView.png");
+    background-repeat: no-repeat, repeat;
+    background-size: 100%;
+    background-position: center;
 }
 
 #selectWindow button {
-    background-color: #949494;
+    background-color: #ba8044;
     border: 0px;
     height: 40%;
     width: 40%;
@@ -216,7 +221,6 @@ body {
 }
 /*-----------------------------------------------------------------------------------------------*/
 
-
 /*Items Button-----------------------------------------------------------------------------------*/
 #itemsBut {
     background-image: url("../../QuestyjsAssets/UI/SelectVewButtons/Items/ItemsBut.png");
@@ -227,5 +231,18 @@ body {
 }
 #itemsBut:active {
     background-image: url("../../QuestyjsAssets/UI/SelectVewButtons/Items/ItemsButPressed.png");
+}
+/*-----------------------------------------------------------------------------------------------*/
+
+/*Quit Button-----------------------------------------------------------------------------------*/
+#quitBut {
+    background-image: url("../../QuestyjsAssets/UI/SelectVewButtons/Quit/QuitBut.png");
+}
+#quitBut:hover {
+    background-image: url("../../QuestyjsAssets/UI/SelectVewButtons/Quit/QuitButHover.png");
+    
+}
+#quitBut:active {
+    background-image: url("../../QuestyjsAssets/UI/SelectVewButtons/Quit/QuitButPressed.png");
 }
 /*-----------------------------------------------------------------------------------------------*/

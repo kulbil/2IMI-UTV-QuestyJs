@@ -33,7 +33,7 @@
             <button class="menuButton" id="fightBut"></button>
             <button class="menuButton" id="itemsBut"></button>
             <button class="menuButton" id="runBut"></button>
-            <button class="menuButton" id="quitBut">Save & Quit</button>
+            <button class="menuButton" id="quitBut"></button>
         </div>
     </div>
 </div>
