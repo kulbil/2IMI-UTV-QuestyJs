@@ -177,7 +177,7 @@ body {
     width: 100%;
     background-image: url("../../QuestyjsAssets/UI/Backgrounds/SelectView.png");
     background-repeat: no-repeat, repeat;
-    background-size: 100%;
+    background-size: 100% 100%;
     background-position: center;
 }
 

@@ -21,7 +21,10 @@ weaponList.push(new weapon("Spear", 15));
 var monsterList = [];
 monsterList.push(new monster("Garmadon", 24, 5));
 monsterList.push(new monster("SanchayDenSure", 10, 4));
-monsterList.push(new monster("Jwoodh", 13, 8)); 
+monsterList.push(new monster("Jwoodh", 13, 8));
+monsterList.push(new monster("AdrianGrenseHopper", 12, 30));
+monsterList.push(new monster("ArvidExcel", 32, 2));
+monsterList.push(new monster("JegVetDaFaen", 1, 100));
 
 var currentRoom;
 var currentPlayer;
@@ -61,11 +64,11 @@ function updMonSts() {
 }
 
 function gameOver() {
-    //if(highScore < currentRoom.number) {
-        highScore = currentRoom;
+    if(highScore > currentRoom.number) {
+        highScore = currentRoom.number;
         document.getElementById('js2phpHs').value = highScore;
         document.forms["highScoreTransfer"].submit();
-    //}
+    }
 
     currentRoom.number = 0;
     currentRoom.monster = monsterList[Math.floor(Math.random() * monsterList.length)];
@@ -75,9 +78,7 @@ function gameOver() {
     currentPlayer.weapon = 0;
     currentPlayer.healing = 5;
     currentPlayer.zeus = 1;
-    alert("du døde");
-    //saveData();
-    
+    saveData();
 }
 
 function monsterTurn() {
@@ -86,7 +87,6 @@ function monsterTurn() {
     if(currentPlayer.health <= 0) {
         gameOver();
     }
-    
 }
 
 function updGameIW(text) {

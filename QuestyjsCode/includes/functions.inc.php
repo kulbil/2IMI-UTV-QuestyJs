@@ -135,12 +135,11 @@ function updHs() {
     $playerId = $_SESSION["userid"];
     $highscore = $_SESSION["userhighscore"];
     
-    
-    if (isset($Highscore)) {
+    if (isset($highscore)) {
         $sql = "UPDATE users SET highscore=? where id=?";
         $stmt = $GLOBALS['conn']->prepare($sql);
     
-        $stmt->bind_param("ii", $highScore, $playerId);
+        $stmt->bind_param("ii", $highscore, $playerId);
         $stmt->execute();
     }
     
