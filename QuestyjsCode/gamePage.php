@@ -30,12 +30,10 @@
             </div>
         </div>
         <div id="selectWindow">
-            <div id="selectWindowInner">
-                <button class="menuButton" id="fightBut"></button>
-                <button class="menuButton" id="itemsBut"></button>
-                <button class="menuButton" id="runBut"></button>
-                <button class="menuButton" id="quitBut"></button>
-            </div>
+            <button class="menuButton" id="fightBut"></button>
+            <button class="menuButton" id="itemsBut"></button>
+            <button class="menuButton" id="runBut"></button>
+            <button class="menuButton" id="quitBut"></button>
         </div>
     </div>
 </div>

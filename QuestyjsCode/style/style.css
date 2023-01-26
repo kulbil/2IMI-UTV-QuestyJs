@@ -175,9 +175,6 @@ body {
 
 #selectWindow {
     flex: 3;
-}
-
-#selectWindowInner {
     display: flex;
     background-color: #949494;
     align-items: center;
@@ -187,12 +184,13 @@ body {
     align-items: center;
     height: 100%;
     width: 100%;
-    background-image: url("../../QuestyjsAssets/UI/Backgrounds/Menucorner.png");
+    background-image: url("../../QuestyjsAssets/UI/Backgrounds/SelectView.png");
+    background-size: 100% 100%;
     background-repeat: no-repeat, repeat;
     background-position: bottom left;
 }
 
-#selectWindowInner button {
+#selectWindow button {
     background-color: #ba8044;
     border: 0px;
     height: 40%;
