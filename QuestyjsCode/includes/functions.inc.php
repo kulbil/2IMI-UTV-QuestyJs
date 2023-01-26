@@ -116,33 +116,13 @@ function updDb() {
     
     $userPlayerData = $_SESSION["userplayerdata"];
     $playerId = $_SESSION["userid"];
+    $highscore = $_SESSION["userhighscore"];
 
-    $sql = "UPDATE users SET playerdata=? where id=?";
+    $sql = "UPDATE users SET playerdata=?, highscore=? where id=?";
     $stmt = $GLOBALS['conn']->prepare($sql);
 
-    $stmt->bind_param("si", $userPlayerData, $playerId);
+    $stmt->bind_param("sii", $userPlayerData, $highscore, $playerId);
     $stmt->execute();
-}
-
-//resetter alt av spiller stats og lagrer det i databasen.
-//lagrer også highscore i databasen
-function updHs() {
-    if(!isset($_SESSION)) 
-    { 
-        session_start(); 
-    }
-    
-    $playerId = $_SESSION["userid"];
-    $highscore = $_SESSION["userhighscore"];
-    
-    if (isset($highscore)) {
-        $sql = "UPDATE users SET highscore=? where id=?";
-        $stmt = $GLOBALS['conn']->prepare($sql);
-    
-        $stmt->bind_param("ii", $highscore, $playerId);
-        $stmt->execute();
-    }
-    
 }
 
 ?>

@@ -1,9 +1,6 @@
 <?php
     include_once 'header.php';
-        
-    if(!isset($_SESSION["useruid"])) { 
-        header("location: index.php");
-    }
+    
     
 ?>
 

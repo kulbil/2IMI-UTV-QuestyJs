@@ -30,10 +30,12 @@
             </div>
         </div>
         <div id="selectWindow">
-            <button class="menuButton" id="fightBut"></button>
-            <button class="menuButton" id="itemsBut"></button>
-            <button class="menuButton" id="runBut"></button>
-            <button class="menuButton" id="quitBut"></button>
+            <div id="selectWindowInner">
+                <button class="menuButton" id="fightBut"></button>
+                <button class="menuButton" id="itemsBut"></button>
+                <button class="menuButton" id="runBut"></button>
+                <button class="menuButton" id="quitBut"></button>
+            </div>
         </div>
     </div>
 </div>
@@ -43,10 +45,6 @@
     echo '<input id="php2jsData" type="hidden" name="php2js" value="'.$_SESSION['userplayerdata'].'"></input>';
     echo '<input id="php2jsUid" type="hidden" name="php2js" value="'.$_SESSION['useruid'].'"></input>';
     echo '<input id="js2phpData" type="hidden" name="js2phpData" value=""></input>';
-    echo '</form>';
-    
-    echo '<form method="get" id="highScoreTransfer" action="includes/highScoreTransfer.inc.php">';
-    echo '<input id="php2jsHs" type="hidden" name="php2js" value="'.$_SESSION['userhighscore'].'"></input>';
     echo '<input id="js2phpHs" type="hidden" name="js2phpHs" value=""></input>';
     echo '</form>';
     

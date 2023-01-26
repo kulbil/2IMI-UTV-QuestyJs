@@ -106,6 +106,10 @@ body {
     font-size: 3vh;
     color: white;
     padding-left: 3vw;
+    background-image: url("../../QuestyjsAssets/UI/Backgrounds/GameInfoView.png");
+    background-repeat: no-repeat, repeat;
+    background-size: 100% 100%;
+    background-position: center;
 }
 
 .addedInfo {
@@ -118,6 +122,10 @@ body {
     background-color: #9E9E9E;
     flex-direction: column;
     justify-content: space-around;
+    background-image: url("../../QuestyjsAssets/UI/Backgrounds/ItenInfoView.png");
+    background-repeat: no-repeat, repeat;
+    background-size: 100% 100%;
+    background-position: center;
 }
 
 #playerItemInfoWindow p {
@@ -167,6 +175,10 @@ body {
 
 #selectWindow {
     flex: 3;
+}
+
+#selectWindowInner {
+    display: flex;
     background-color: #949494;
     align-items: center;
     justify-content: center;
@@ -175,19 +187,20 @@ body {
     align-items: center;
     height: 100%;
     width: 100%;
-    background-image: url("../../QuestyjsAssets/UI/Backgrounds/SelectView.png");
+    background-image: url("../../QuestyjsAssets/UI/Backgrounds/Menucorner.png");
     background-repeat: no-repeat, repeat;
-    background-size: 100% 100%;
-    background-position: center;
+    background-position: bottom left;
 }
 
-#selectWindow button {
+#selectWindowInner button {
     background-color: #ba8044;
     border: 0px;
     height: 40%;
     width: 40%;
     font-size: 130%;
 }
+
+
 
 .menuButton {
     background-repeat: no-repeat, repeat;

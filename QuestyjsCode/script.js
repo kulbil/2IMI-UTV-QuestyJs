@@ -7,10 +7,8 @@
 
 var playerData = JSON.parse(document.getElementById('php2jsData').value);
 var playerName = document.getElementById('php2jsUid').value;
-var highScore = document.getElementById('php2jsHs').value;
 console.log(playerName);
 console.log(playerData);
-console.log(highScore);
 //PlayerData[room, health, weapon, healing, zeus]
 
 var weaponList = [];
@@ -64,11 +62,8 @@ function updMonSts() {
 }
 
 function gameOver() {
-    if(highScore > currentRoom.number) {
-        highScore = currentRoom.number;
-        document.getElementById('js2phpHs').value = highScore;
-        document.forms["highScoreTransfer"].submit();
-    }
+    highScore = currentRoom.number;
+    document.getElementById('js2phpHs').value = highScore;
 
     currentRoom.number = 0;
     currentRoom.monster = monsterList[Math.floor(Math.random() * monsterList.length)];
@@ -78,6 +73,7 @@ function gameOver() {
     currentPlayer.weapon = 0;
     currentPlayer.healing = 5;
     currentPlayer.zeus = 1;
+
     saveData();
 }
 
