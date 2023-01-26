@@ -107,6 +107,7 @@ body {
     color: white;
     padding-left: 3vw;
     background-image: url("../../QuestyjsAssets/UI/Backgrounds/GameInfoView.png");
+    image-rendering: pixelated;
     background-repeat: no-repeat, repeat;
     background-size: 100% 100%;
     background-position: center;
@@ -123,6 +124,7 @@ body {
     flex-direction: column;
     justify-content: space-around;
     background-image: url("../../QuestyjsAssets/UI/Backgrounds/ItenInfoView.png");
+    image-rendering: pixelated;
     background-repeat: no-repeat, repeat;
     background-size: 100% 100%;
     background-position: center;
@@ -145,7 +147,12 @@ body {
 
 #monsterWindowTop {
     flex: 1;
-    font-family: Calibri
+    font-family: Calibri;
+    background-image: url("../../QuestyjsAssets/UI/Backgrounds/MonsterWindowTop.png");
+    image-rendering: pixelated;
+    background-size: 100% 100%;
+    background-repeat: no-repeat, repeat;
+    background-position: bottom left;
 }
 
 #monsterName {
@@ -166,6 +173,11 @@ body {
 #monsterWindowBottom {
     flex: 5;
     background-color: blue;
+    background-image: url("../../QuestyjsAssets/UI/Backgrounds/MonsterView.png");
+    image-rendering: pixelated;
+    background-size: 100% 100%;
+    background-repeat: no-repeat, repeat;
+    background-position: bottom left;
 }
 
 #monsterSprite {
@@ -185,6 +197,7 @@ body {
     height: 100%;
     width: 100%;
     background-image: url("../../QuestyjsAssets/UI/Backgrounds/SelectView.png");
+    image-rendering: pixelated;
     background-size: 100% 100%;
     background-repeat: no-repeat, repeat;
     background-position: bottom left;
