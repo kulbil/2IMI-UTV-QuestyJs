@@ -4,9 +4,4 @@ class monster {
         this.health = health;
         this.strength = strength;
     }
-
-    damaged(dmg) {
-        this.health -= dmg;
-        return this.health;
-    }
 }

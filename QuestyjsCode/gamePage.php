@@ -9,9 +9,16 @@
             <p>INFO WINDOW</p>
         </div>
         <div id="playerItemInfoWindow">
-            <p id="roomPIIW">Room: </p>
-            <p id="hpPIIW">HP: </p>
-            <p id="weaponPIIW">Weapon: </p>
+            <div id="playerInfo">
+                <p id="roomPIIW">Room: </p>
+                <p id="hpPIIW">HP: </p>
+                <p id="weaponPIIW">Weapon: </p>
+            </div>
+            <div id="itemInfo">
+                <p id="healingPIIW">Healing: </p>
+                <p id="zeusPIIW">Zeuz: </p>
+                <p id="strengthPIIW">Strength: Soon</p>
+            </div>
         </div>
     </div>
     <div id="gameSCRight">

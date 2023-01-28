@@ -17,11 +17,11 @@ weaponList.push(new weapon("Axe", 10));
 weaponList.push(new weapon("Spear", 15));
 
 var monsterList = [];
-monsterList.push(new monster("Garmadon", 24, 5));
-monsterList.push(new monster("SanchayDenSure", 10, 4));
-monsterList.push(new monster("Jwoodh", 13, 8));
-monsterList.push(new monster("AdrianGrenseHopper", 12, 30));
-monsterList.push(new monster("ArvidExcel", 32, 2));
+monsterList.push(new monster("Garmadon", 1, 5));
+monsterList.push(new monster("SanchayDenSure", 1, 4));
+monsterList.push(new monster("Jwoodh", 1, 8));
+monsterList.push(new monster("AdrianGrenseHopper", 1, 30));
+monsterList.push(new monster("ArvidExcel", 1, 2));
 monsterList.push(new monster("JegVetDaFaen", 1, 100));
 
 var currentRoom;
@@ -49,11 +49,63 @@ function createRoom() {
     currentRoom = new room(playerData[0], roomMonster, roomWeapon);
 }
 
+function createNewRoom() {
+    var roomMonster = monsterList[Math.floor(Math.random() * monsterList.length)];
+    var roomWeapon =  weaponList[Math.floor(Math.random() * weaponList.length)];
+    currentRoom = new room(currentRoom.number + 1, roomMonster, roomWeapon);
+}
+
 function updPIIW() {
     $("#roomPIIW").text("Room: " + currentRoom.number);
     $("#hpPIIW").text("HP: " + currentPlayer.health);
-    $("#weaponPIIW").text("Weapon " + weaponList[playerData[2]].name + "(" + weaponList[playerData[2]].damage + ")")
+    $("#weaponPIIW").text("Weapon: " + weaponList[playerData[2]].name + "(" + weaponList[playerData[2]].damage + ")");
+    $("#healingPIIW").text("Healing: " + currentPlayer.healing);
+    $("#zeusPIIW").text("Zeus: " + currentPlayer.zeus);
 }
+
+function updGameData(object, value) {
+    switch(object) {
+        case "room":
+            currentRoom.number += value;
+            $("#roomPIIW").text("Room: " + currentRoom.number);
+            break;
+        case "hp":
+            currentPlayer.health += value;
+            if(currentPlayer.health > 100) {
+                currentPlayer.health = 100;
+            }
+            $("#hpPIIW").text("HP: " + currentPlayer.health);
+            if(currentPlayer.health <= 0) {
+                gameOver();
+            }
+            break;
+        case "weapon":
+            playerData[2] = value;
+            $("#weaponPIIW").text("Weapon: " + weaponList[playerData[2]].name + "(" + weaponList[playerData[2]].damage + ")");
+            break;
+        case "healing":
+            if(currentPlayer.health != 100) {
+                currentPlayer.healing += value;
+            } else {
+                alert("you're already at max health!");
+            }
+            $("#healingPIIW").text("Healing: " + currentPlayer.healing);
+            break;
+        case "zeus":
+            currentPlayer.zeus += value;
+            $("#zeusPIIW").text("Zeus: " + currentPlayer.zeus);
+            break;
+        case "monsterHp":
+            currentRoom.monster.health += value;
+            if(currentRoom.monster.health <= 0) {
+                updGameIW("You defeated " + currentRoom.monster.name + " and moved on to the next challenge!");
+            }
+            break;
+    }   
+    updPIIW(); 
+    updMonSts();
+}
+
 
 function updMonSts() {
     $("#monsterName").text(currentRoom.monster.name);
@@ -77,12 +129,19 @@ function gameOver() {
     saveData();
 }
 
-function monsterTurn() {
-    updGameIW("Monster attacked!")
-    currentPlayer.damaged(currentRoom.monster.strength);
-    if(currentPlayer.health <= 0) {
-        gameOver();
+function playerFight() {
+    updGameIW("You attacked " + currentRoom.monster.name + " and did " + weaponList[currentPlayer.weapon].damage + " damage!");
+    updGameData("monsterHp", -weaponList[currentPlayer.weapon].damage);
+    if(currentRoom.monster.health > 0) {
+        monsterTurn();
+    } else {
+        createNewRoom();
     }
+}
+
+function monsterTurn() {
+    updGameIW(currentRoom.monster.name + " attacked and did " + currentRoom.monster.strength + " damage!");
+    updGameData("hp", -currentRoom.monster.strength);
 }
 
 function updGameIW(text) {
@@ -98,10 +157,12 @@ createRoom();
 updMonSts();
 updPIIW();
 
+
 //Button-Events------------------------------------------------------------------------
 
 $("#selectWindow").on('click', '#fightBut', function() {
     console.log("fight")
+    playerFight();
 
 })
 
@@ -110,7 +171,7 @@ $("#selectWindow").on('click', '#itemsBut', function() {
     $('.menuButton').remove();
     $('#buttonForm').remove();
 
-    var button1 = $('<button></button>').text("Healing Potion X5");
+    var button1 = $('<button></button>').text("Healing Potion");
     button1.attr("class", "menuButton");
     button1.attr("id", "healingBut");
 
@@ -118,7 +179,7 @@ $("#selectWindow").on('click', '#itemsBut', function() {
     button2.attr("class", "menuButton");
     button2.attr("id", "strengthBut");
 
-    var button3 = $('<button></button>').text("Zeus Smite X1");
+    var button3 = $('<button></button>').text("Zeus Smite");
     button3.attr("class", "menuButton");
     button3.attr("id", "zeusBut");
 
@@ -132,9 +193,8 @@ $("#selectWindow").on('click', '#runBut', function() {
     console.log("run");
     console.log(playerData);
     console.log(currentRoom);
-    currentRoom.number += 1;
     monsterTurn();
-    updPIIW();
+    updGameData("room", 1);
 })
 
 $("#selectWindow").on('click', '#quitBut', function() {
@@ -145,6 +205,12 @@ $("#selectWindow").on('click', '#quitBut', function() {
 })
 
 $("#selectWindow").on('click', '#healingBut', function() {
+    if (currentPlayer.healing > 0) {
+        updGameData("healing", -1);
+        updGameData("hp", 50);
+    } else {
+        alert("out of healing!");
+    }
     console.log("healing")
 })
 
@@ -154,6 +220,11 @@ $("#selectWindow").on('click', '#strengthBut', function() {
 })
 
 $("#selectWindow").on('click', '#zeusBut', function() {
+    if (currentPlayer.zeus > 0) {
+        updGameData("zeus", -1);
+    } else {
+        alert("out of zeus!");
+    }
     console.log("zeus")
 })
 

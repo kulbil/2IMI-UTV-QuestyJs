@@ -121,13 +121,27 @@ body {
 #playerItemInfoWindow {
     flex: 3;
     background-color: #9E9E9E;
-    flex-direction: column;
-    justify-content: space-around;
     background-image: url("../../QuestyjsAssets/UI/Backgrounds/ItenInfoView.png");
     image-rendering: pixelated;
     background-repeat: no-repeat, repeat;
     background-size: 100% 100%;
     background-position: center;
+}
+
+#playerInfo {
+    display: flex;
+    flex: 7;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#itemInfo {
+    display: flex;
+    flex: 3;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 #playerItemInfoWindow p {
