@@ -13,7 +13,9 @@
                 <p id="roomPIIW">Room: </p>
                 <div id="hpPIIWDiv">
                     <p id="hpPIIW">HP: </p>
-                    <div id="hpBarPIIW">asdasd</div>
+                    <div id="hpBarPIIW">
+                        <div id="hpBarBarPIIW"></div>
+                    </div>
                 </div>
                 <p id="weaponPIIW">Weapon: </p>
             </div>
@@ -33,7 +35,9 @@
                     <p id="strengthMonSts">Strength: </p>
                 </div>
             </div>
-            <div id="monsterWindowBottom"></div>
+            <div id="monsterWindowBottom">
+                <img id="monsterSprite">
+            </div>
         </div>
         <div id="selectWindow">
             <button class="menuButton" id="fightBut"></button>

@@ -172,8 +172,24 @@ body {
     justify-content: space-around;
 }
 
-#hpPIIW {
+#hpPIIWDiv {
     display: flex;
+}
+
+#hpPIIWDiv p {
+    flex: 2;
+}
+
+#hpBarPIIW {
+    flex: 5;
+    background-color: red;
+    border: 3px solid;
+    height: 100%;
+    width: 70%;
+}
+#hpBarBarPIIW {
+    background-color: lightgreen;
+    height: 100%;
 }
 
 #itemInfo {
@@ -189,16 +205,6 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     margin-left: 2vw;
-}
-
-#hpPIIWDiv {
-    display: flex;
-}
-
-#hpBarPIIW {
-    background-color: red;
-    height: 10px;
-    width: 70%;
 }
 
 #monsterWindow {
@@ -236,6 +242,8 @@ body {
 
 #monsterWindowBottom {
     flex: 5;
+    justify-content: center;
+    align-items: center;
     background-color: blue;
     background-image: url("../../QuestyjsAssets/UI/Backgrounds/MonsterView.png");
     image-rendering: pixelated;
@@ -245,8 +253,8 @@ body {
 }
 
 #monsterSprite {
-    height: 100px;
-    width: 100px;
+    height: 20vw;
+    width: 20vw;
 }
 
 #selectWindow {

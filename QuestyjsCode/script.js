@@ -20,12 +20,12 @@ var monsterList = [
     {
         name: "Garmadon", 
         strength: 5,
-        health: 4
+        health: 12
     },
     {
         name: "SanchayDenSure",
         strength: 4,
-        health: 4
+        health: 16
     },
     {  
         name: "Jwoodh",
@@ -35,17 +35,18 @@ var monsterList = [
     {  
         name: "AdrianGrenseHopper", 
         strength: 30,
-        health: 4
+        health: 6,
+        sprite: "../QuestyjsAssets/Mobs/AdrianGrenseHopper.gif"
     },
     {  
         name: "ArvidExcel", 
-        strength: 2,
-        health: 4
+        strength: 8,
+        health: 5
     },
     {
         name: "September", 
-        strength: 100,
-        health: 4
+        strength: 10,
+        health: 13
     },
 ];
 
@@ -70,16 +71,19 @@ function saveData() {
 
 function createRoom() {
     var rand = Math.floor(Math.random() * monsterList.length);
-    var roomMonster = new monster(monsterList[rand].name, monsterList[rand].strength, monsterList[rand].health);
+    var roomMonster = new monster(monsterList[rand].name, monsterList[rand].strength, monsterList[rand].health, monsterList[rand].sprite);
     var roomWeapon =  weaponList[Math.floor(Math.random() * weaponList.length)];
     currentRoom = new room(playerData[0], roomMonster, roomWeapon);
+    $("#monsterSprite").attr("src", currentRoom.monster.sprite);
 }
 
 function createNewRoom() {
+    $("#monsterSprite").attr("src", "");
     var rand = Math.floor(Math.random() * monsterList.length);
-    var roomMonster = new monster(monsterList[rand].name, monsterList[rand].strength, monsterList[rand].health);
+    var roomMonster = new monster(monsterList[rand].name, monsterList[rand].strength, monsterList[rand].health, monsterList[rand].sprite);
     var roomWeapon =  weaponList[Math.floor(Math.random() * weaponList.length)];
     currentRoom = new room(currentRoom.number + 1, roomMonster, roomWeapon);
+    $("#monsterSprite").attr("src", currentRoom.monster.sprite);
 }
 
 function updPIIW() {
@@ -101,6 +105,7 @@ function updGameData(object, value) {
             if(currentPlayer.health > 100) {
                 currentPlayer.health = 100;
             }
+            $("#hpBarBarPIIW").css("width", "" + currentPlayer.health + "%");
             $("#hpPIIW").text("HP: " + currentPlayer.health);
             if(currentPlayer.health <= 0) {
                 gameOver();
@@ -215,11 +220,7 @@ $("#selectWindow").on('click', '#itemsBut', function() {
 })
 
 $("#selectWindow").on('click', '#runBut', function() {
-    console.log("run");
-    console.log(playerData);
     console.log(currentRoom);
-    monsterTurn();
-    updGameData("room", 1);
 })
 
 $("#selectWindow").on('click', '#quitBut', function() {
@@ -241,7 +242,6 @@ $("#selectWindow").on('click', '#healingBut', function() {
 
 $("#selectWindow").on('click', '#strengthBut', function() {
     console.log("strength")
-    saveData();
 })
 
 $("#selectWindow").on('click', '#zeusBut', function() {
