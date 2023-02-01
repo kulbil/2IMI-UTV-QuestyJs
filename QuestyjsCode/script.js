@@ -18,9 +18,10 @@ weaponList.push(new weapon("Spear", 15));
 
 var monsterList = [
     {
-        name: "Garmadon", 
+        name: "Blobby", 
         strength: 5,
-        health: 12
+        health: 12,
+        sprite: "../QuestyjsAssets/Mobs/Blobby.gif"
     },
     {
         name: "SanchayDenSure",
