@@ -12,3 +12,5 @@ updDb();
 echo $_SESSION["userplayerdata"];
 echo "<br>";
 echo $_SESSION["userhighscore"];
+
+header("location: ../gameoverPage.php");

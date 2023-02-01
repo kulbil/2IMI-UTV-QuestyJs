@@ -11,30 +11,29 @@
         <div id="playerItemInfoWindow">
             <div id="playerInfo">
                 <p id="roomPIIW">Room: </p>
-                <p id="hpPIIW">HP: </p>
+                <div id="hpPIIWDiv">
+                    <p id="hpPIIW">HP: </p>
+                    <div id="hpBarPIIW">asdasd</div>
+                </div>
                 <p id="weaponPIIW">Weapon: </p>
             </div>
             <div id="itemInfo">
                 <p id="healingPIIW">Healing: </p>
-                <p id="zeusPIIW">Zeuz: </p>
-                <p id="strengthPIIW">Strength: Soon</p>
+                <p id="zeusPIIW">Zeus: </p>
+                <p id="strengthPIIW">Strength: </p>
             </div>
         </div>
     </div>
     <div id="gameSCRight">
         <div id="monsterWindow">
             <div id="monsterWindowTop">
-                <div id="monsterName">
-                    Garmadon
-                </div>
+                <div id="monsterName"></div>
                 <div id="monsterStats">
                     <p id="healthMonSts">Health: </p>
                     <p id="strengthMonSts">Strength: </p>
                 </div>
             </div>
-            <div id="monsterWindowBottom">
-                
-            </div>
+            <div id="monsterWindowBottom"></div>
         </div>
         <div id="selectWindow">
             <button class="menuButton" id="fightBut"></button>
@@ -57,14 +56,6 @@
     echo '<input id="quitInput" type="hidden" name="quitInput" value=""></input>';
     echo '</form>';
 ?>
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-<script src="classes/weapon.js"></script>
-<script src="classes/monster.js"></script>
-<script src="classes/player.js"></script>
-<script src="classes/room.js"></script>
-<script src="script.js"></script>
 
 <?php
     include_once 'footer.php';

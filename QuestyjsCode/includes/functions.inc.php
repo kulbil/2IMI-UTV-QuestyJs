@@ -97,7 +97,6 @@ function loginUser($uid, $pwd) {
 
 //logger ut brukeren
 function logoutUser() {
-
     updDb();
 
     if(!isset($_SESSION)) { 

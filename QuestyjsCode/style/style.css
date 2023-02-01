@@ -74,6 +74,42 @@ body {
     margin: 2px;
 }
 
+#container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+
+#gameoverBox {
+    display: flex;
+    height: 80vh;
+    width: 20vw;
+    flex-direction: column;
+    align-items: center;
+    background-color: coral;
+    border-radius: 50px;
+}
+
+#gameoverBox h1 {
+    height: 16%;
+}
+
+#restart, #quit {
+    display: flex;
+    margin-top: 30%;
+    justify-content: center;
+    align-items: center;
+    height: 16%;
+    width: 70%;
+    background-color: lightblue;
+    border-radius: 50px;
+}
+
+#restart:hover, #quit:hover {
+    background-color: red;
+}
 
 #monsterStats ,#monsterName ,#gameWrapper ,#gameSCLeft ,#gameSCRight ,#gameInfoWindow ,#playerItemInfoWindow ,#monsterWindow ,#selectWindow form ,#selectWindow ,#monsterWindowTop ,#monsterWindowBottom ,.selectOption {
     display: flex;
@@ -136,6 +172,10 @@ body {
     justify-content: space-around;
 }
 
+#hpPIIW {
+    display: flex;
+}
+
 #itemInfo {
     display: flex;
     flex: 3;
@@ -149,6 +189,16 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     margin-left: 2vw;
+}
+
+#hpPIIWDiv {
+    display: flex;
+}
+
+#hpBarPIIW {
+    background-color: red;
+    height: 10px;
+    width: 70%;
 }
 
 #monsterWindow {
@@ -225,8 +275,6 @@ body {
     font-size: 130%;
 }
 
-
-
 .menuButton {
     background-repeat: no-repeat, repeat;
     background-size: 73%;
@@ -282,5 +330,57 @@ body {
 }
 #quitBut:active {
     background-image: url("../../QuestyjsAssets/UI/SelectVewButtons/Quit/QuitButPressed.png");
+}
+/*-----------------------------------------------------------------------------------------------*/
+
+/*Healing Button---------------------------------------------------------------------------------*/
+#healingBut {
+    background-image: url("../../QuestyjsAssets/UI/SelectVewButtons/Healing/HealingBut.png");
+}
+#healingBut:hover {
+    background-image: url("../../QuestyjsAssets/UI/SelectVewButtons/Healing/HealingtButHover.png");
+    
+}
+#healingBut:active {
+    background-image: url("../../QuestyjsAssets/UI/SelectVewButtons/Healing/HealingButPressed.png");
+}
+/*-----------------------------------------------------------------------------------------------*/
+
+/*Zeus Button-----------------------------------------------------------------------------------/*/
+#zeusBut {
+    background-image: url("../../QuestyjsAssets/UI/SelectVewButtons/Zeus/ZeusBut.png");
+}
+#zeusBut:hover {
+    background-image: url("../../QuestyjsAssets/UI/SelectVewButtons/Zeus/ZeusButHover.png");
+    
+}
+#zeusBut:active {
+    background-image: url("../../QuestyjsAssets/UI/SelectVewButtons/Zeus/ZeusButPressed.png");
+}
+/*-----------------------------------------------------------------------------------------------*/
+
+/*Strength Button--------------------------------------------------------------------------------*/
+#strengthBut {
+    background-image: url("../../QuestyjsAssets/UI/SelectVewButtons/Strength/StrengthBut.png");
+}
+#strengthBut:hover {
+    background-image: url("../../QuestyjsAssets/UI/SelectVewButtons/Strength/StrengthButHover.png");
+    
+}
+#strengthBut:active {
+    background-image: url("../../QuestyjsAssets/UI/SelectVewButtons/Strength/StrengthButPressed.png");
+}
+/*-----------------------------------------------------------------------------------------------*/
+
+/*Back Button------------------------------------------------------------------------------------*/
+#backBut {
+    background-image: url("../../QuestyjsAssets/UI/SelectVewButtons/Back/BackBut.png");
+}
+#backBut:hover {
+    background-image: url("../../QuestyjsAssets/UI/SelectVewButtons/Back/BackButHover.png");
+    
+}
+#backBut:active {
+    background-image: url("../../QuestyjsAssets/UI/SelectVewButtons/Back/BackButPressed.png");
 }
 /*-----------------------------------------------------------------------------------------------*/

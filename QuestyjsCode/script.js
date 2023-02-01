@@ -16,18 +16,43 @@ weaponList.push(new weapon("Stick", 5));
 weaponList.push(new weapon("Axe", 10));
 weaponList.push(new weapon("Spear", 15));
 
-var monsterList = [];
-monsterList.push(new monster("Garmadon", 1, 5));
-monsterList.push(new monster("SanchayDenSure", 1, 4));
-monsterList.push(new monster("Jwoodh", 1, 8));
-monsterList.push(new monster("AdrianGrenseHopper", 1, 30));
-monsterList.push(new monster("ArvidExcel", 1, 2));
-monsterList.push(new monster("JegVetDaFaen", 1, 100));
+var monsterList = [
+    {
+        name: "Garmadon", 
+        strength: 5,
+        health: 4
+    },
+    {
+        name: "SanchayDenSure",
+        strength: 4,
+        health: 4
+    },
+    {  
+        name: "Jwoodh",
+        strength: 8,
+        health: 4
+    },
+    {  
+        name: "AdrianGrenseHopper", 
+        strength: 30,
+        health: 4
+    },
+    {  
+        name: "ArvidExcel", 
+        strength: 2,
+        health: 4
+    },
+    {
+        name: "September", 
+        strength: 100,
+        health: 4
+    },
+];
 
 var currentRoom;
 var currentPlayer;
 
-//Functions------------------------------------------------------------------------
+//Functions------------------------------------------------------------------------'
 
 function createPlayer() {
     currentPlayer = new player(playerName, playerData[1], playerData[2], playerData[3], playerData[4])
@@ -44,13 +69,15 @@ function saveData() {
 }
 
 function createRoom() {
-    var roomMonster = monsterList[Math.floor(Math.random() * monsterList.length)];
+    var rand = Math.floor(Math.random() * monsterList.length);
+    var roomMonster = new monster(monsterList[rand].name, monsterList[rand].strength, monsterList[rand].health);
     var roomWeapon =  weaponList[Math.floor(Math.random() * weaponList.length)];
     currentRoom = new room(playerData[0], roomMonster, roomWeapon);
 }
 
 function createNewRoom() {
-    var roomMonster = monsterList[Math.floor(Math.random() * monsterList.length)];
+    var rand = Math.floor(Math.random() * monsterList.length);
+    var roomMonster = new monster(monsterList[rand].name, monsterList[rand].strength, monsterList[rand].health);
     var roomWeapon =  weaponList[Math.floor(Math.random() * weaponList.length)];
     currentRoom = new room(currentRoom.number + 1, roomMonster, roomWeapon);
 }
@@ -99,6 +126,9 @@ function updGameData(object, value) {
             currentRoom.monster.health += value;
             if(currentRoom.monster.health <= 0) {
                 updGameIW("You defeated " + currentRoom.monster.name + " and moved on to the next challenge!");
+                createNewRoom();
+            } else {
+                monsterTurn();
             }
             break;
     }   
@@ -109,8 +139,8 @@ function updGameData(object, value) {
 
 function updMonSts() {
     $("#monsterName").text(currentRoom.monster.name);
-    $("#healthMonSts").text("Health " + currentRoom.monster.health);
-    $("#strengthMonSts").text("Strength " + currentRoom.monster.strength);
+    $("#healthMonSts").text("Health: " + currentRoom.monster.health);
+    $("#strengthMonSts").text("Strength: " + currentRoom.monster.strength);
 }
 
 function gameOver() {
@@ -132,11 +162,6 @@ function gameOver() {
 function playerFight() {
     updGameIW("You attacked " + currentRoom.monster.name + " and did " + weaponList[currentPlayer.weapon].damage + " damage!");
     updGameData("monsterHp", -weaponList[currentPlayer.weapon].damage);
-    if(currentRoom.monster.health > 0) {
-        monsterTurn();
-    } else {
-        createNewRoom();
-    }
 }
 
 function monsterTurn() {
@@ -158,7 +183,7 @@ updMonSts();
 updPIIW();
 
 
-//Button-Events------------------------------------------------------------------------
+//In-game-Button-Events---------------------------------------------------
 
 $("#selectWindow").on('click', '#fightBut', function() {
     console.log("fight")
@@ -171,19 +196,19 @@ $("#selectWindow").on('click', '#itemsBut', function() {
     $('.menuButton').remove();
     $('#buttonForm').remove();
 
-    var button1 = $('<button></button>').text("Healing Potion");
+    var button1 = $('<button></button>');
     button1.attr("class", "menuButton");
     button1.attr("id", "healingBut");
 
-    var button2 = $('<button></button>').text("Strength Potion");
+    var button2 = $('<button></button>');
     button2.attr("class", "menuButton");
     button2.attr("id", "strengthBut");
 
-    var button3 = $('<button></button>').text("Zeus Smite");
+    var button3 = $('<button></button>');
     button3.attr("class", "menuButton");
     button3.attr("id", "zeusBut");
 
-    var button4 = $('<button></button>').text("Back");
+    var button4 = $('<button></button>');
     button4.attr("class", "menuButton");
     button4.attr("id", "backBut");
     $('#selectWindow').append(button1, button2, button3, button4);
