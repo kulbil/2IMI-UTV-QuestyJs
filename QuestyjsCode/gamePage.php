@@ -7,6 +7,7 @@
     <div id="gameSCLeft">
         <div id="gameInfoWindow">
             <p>INFO WINDOW</p>
+            <p>You started your dangerous journey and encountered a terrible foe!</p>
         </div>
         <div id="playerItemInfoWindow">
             <div id="playerInfo">
@@ -37,6 +38,7 @@
             </div>
             <div id="monsterWindowBottom">
                 <img id="monsterSprite">
+                <img id="monsterPlatform" src="../QuestyjsAssets/UI/Backgrounds/MonsterPlatform.png" alt="">
             </div>
         </div>
         <div id="selectWindow">

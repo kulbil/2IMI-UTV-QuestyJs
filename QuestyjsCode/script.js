@@ -24,14 +24,15 @@ var monsterList = [
         sprite: "../QuestyjsAssets/Mobs/Blobby.gif"
     },
     {
-        name: "SanchayDenSure",
+        name: "Churida-San",
         strength: 4,
         health: 16
     },
     {  
         name: "Jwoodh",
         strength: 8,
-        health: 4
+        health: 4,
+        sprite: "../QuestyjsAssets/Mobs/jwoodh.gif"
     },
     {  
         name: "AdrianGrenseHopper", 

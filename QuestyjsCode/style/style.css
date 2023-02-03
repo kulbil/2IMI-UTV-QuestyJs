@@ -35,7 +35,6 @@ body {
     line-height: 50px;
     border-radius: 15px;
     transition: width 0.2s, height 0.2s;
-
 }
 
 #loginButton {
@@ -72,6 +71,26 @@ body {
 #signupBox form input {
     flex-direction: column;
     margin: 2px;
+}
+
+#faqLink  {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background-color: white;
+    width: 4vw;
+    height: 4vh;
+    color: black;
+    text-decoration: none;
+    font-family: arial;
+    border-radius: 5px 5px 0px 0px;
+    transition: background-color 0.2s;
+}
+
+#faqLink:hover {
+    background-color: purple;
 }
 
 #container {
@@ -253,8 +272,17 @@ body {
 }
 
 #monsterSprite {
-    height: 20vw;
+    position: absolute;
+    height: 40vh;
     width: 20vw;
+    z-index: 1;
+}
+
+#monsterPlatform {
+    position: relative;
+    height: 25%;
+    width: 50%;
+    top: 30%;
 }
 
 #selectWindow {

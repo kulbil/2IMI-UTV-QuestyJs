@@ -7,6 +7,7 @@
             <a href="login.php" id="loginButton">Log in</a>
             <a href="signup.php" id="signupButton">Sign up</a>
         </div>  
+        <a href="faq.php" id="faqLink">Faq</a>
     </div>
 
 <?php

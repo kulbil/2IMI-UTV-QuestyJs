@@ -24,15 +24,18 @@ if (!isset($_POST['submit'])) {
     */
     if (emptyInputSignup($name, $uid, $pwd, $pwdRepeat) !== false) {
         header("location: ../signup.php?error=emptysignupinput");
+        echo '<script>alert("You need to fill out every box!")</script>';
         exit();
     }
 
     if (pwdMatch($pwd, $pwdRepeat) !== false) {
         header("location: ../signup.php?error=pswnotmatch");
+        echo '<script>alert("The passwords do not match!")</script>';
         exit();
     }
     if (uidTakenCheck($uid) !== false) {
         header("location: ../signup.php?error=uidtaken");
+        echo '<script>alert("That username is already taken")</script>';
         exit();
     }
     
