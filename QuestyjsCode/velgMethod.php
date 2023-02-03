@@ -4,8 +4,8 @@
     
     <div id="wrapper">
         <div id="loginMethodBox">
-            <a href="login.php" id="loginButton">Log in</a>
-            <a href="signup.php" id="signupButton">Sign up</a>
+            <a href="login.php" id="loginButton"></a>
+            <a href="signup.php" id="signupButton"></a>
         </div>  
         <a href="faq.php" id="faqLink">Faq</a>
     </div>
