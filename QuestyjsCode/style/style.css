@@ -3,14 +3,22 @@ body {
 }
 
 /*display flex*/
-#selectWindow form ,#wrapper ,#signupBox form ,#signupBox, #loginMethodBox ,#wrapper {
+#container, #gameoverBoxContents, #gameoverBox, #signupBox button ,#signupBox form, #signupBox, #loginBox form, #loginBox button, #loginBox, #selectWindow form ,#wrapper ,#signupBox form ,#signupBox, #loginMethodBox ,#wrapper {
     display: flex;
+}
+
+/*Pixelart*/
+#container, #restart, #quit, #gameoverBoxContents, #gameoverBox, #backButton, #signupBox button, #signupBox, #selectWindow, #monsterWindowBottom, #monsterWindowTop, #playerItemInfoWindow, #gameInfoWindow, #loginBox button, #loginBox, #signupButton, #loginButton, #loginMethodBox, #wrapper {
+    image-rendering: pixelated;
+    background-repeat: no-repeat, repeat;
+    background-size: 100% 100%;
+    background-position: center; 
 }
 
 #wrapper {
     width: 100vw;
     height: 100vh;
-    background-color: lightblue;
+    background-image: url("../../QuestyjsAssets/UI/BeforeGamePage/VelgMethodBackground.png");
     align-items: center;
     justify-content: center;
 }
@@ -19,10 +27,6 @@ body {
     position: fixed;
     left: 0;
     background-image: url("../../QuestyjsAssets/UI/BeforeGamePage/LoginSigninBackground.png");
-    image-rendering: pixelated;
-    background-repeat: no-repeat, repeat;
-    background-size: 100% 100%;
-    background-position: center;
     height: 100vh;
     width: 40vw;
     flex-direction: column;
@@ -34,10 +38,6 @@ body {
     width: 70%;
     height: 17%;
     background-image: url("../../QuestyjsAssets/UI/BeforeGamePage/Login/LogInButton.png");
-    image-rendering: pixelated;
-    background-repeat: no-repeat, repeat;
-    background-size: 100% 100%;
-    background-position: center;
 }
 
 #loginButton:hover {
@@ -52,10 +52,6 @@ body {
     width: 70%;
     height: 17%;
     background-image: url("../../QuestyjsAssets/UI/BeforeGamePage/Signin/SignInButton.png");
-    image-rendering: pixelated;
-    background-repeat: no-repeat, repeat;
-    background-size: 100% 100%;
-    background-position: center;
 }
 
 #signupButton:hover {
@@ -66,28 +62,87 @@ body {
     background-image: url("../../QuestyjsAssets/UI/BeforeGamePage/Signin/SignInButtonPressed.png");
 }
 
-#signupBox {
-    justify-content: center;
+#loginBox, #signupBox, #gameoverBox {
+    position: fixed;
+    left: 0;
+    background-image: url("../../QuestyjsAssets/UI/BeforeGamePage/LoginSigninBackground.png");
     height: 100vh;
-    width: 70vw;
-    background-color: coral;
-}
-
-#signupBox form{
-    flex-direction: column;
-    justify-content: center;
+    width: 40vw;
+    justify-content: space-around;
     align-items: center;
-    height: 100%;
 }
 
-#signupBox form input {
+#loginBox form, #signupBox form {
     flex-direction: column;
-    margin: 2px;
+    justify-content: space-around;
+    height: 50vh;
+    width: 70%;
+}
+
+#signupBox form {
+    height: 70vh;
+}
+
+#loginBox input, #signupBox input {
+    height: 7vh;
+    border-radius: 20px;
+    font-size: 200%;
+}
+
+#loginBox button, #signupBox button, #restart, #quit {
+    width: 100%;
+    height: 17vh;
+    background-color: transparent;
+    outline: none;
+    border: none;}
+
+#loginBox button {
+    background-image: url("../../QuestyjsAssets/UI/BeforeGamePage/Login/LogInButton.png");
+}
+
+#loginBox button:hover {
+    background-image: url("../../QuestyjsAssets/UI/BeforeGamePage/Login/LogInButtonHover.png");
+}
+
+#loginBox button:active {
+    background-image: url("../../QuestyjsAssets/UI/BeforeGamePage/Login/LogInButtonPressed.png");
+}
+
+#signupBox button {
+    background-image: url("../../QuestyjsAssets/UI/BeforeGamePage/SignIn/SignInButton.png");
+}
+
+#signupBox button:hover {
+    background-image: url("../../QuestyjsAssets/UI/BeforeGamePage/SignIn/SignInButtonHover.png");
+}
+
+#signupBox button:active {
+    background-image: url("../../QuestyjsAssets/UI/BeforeGamePage/SignIn/SignInButtonPressed.png");
+}
+
+#backButton {
+    position: fixed;
+    top: 1vw;
+    left: 1vw;
+    height: 6%;
+    width: 3%;
+    background-image: url("../../QuestyjsAssets/UI/BeforeGamePage/Return/Return.png");
+}
+
+#backButton:hover {
+    background-image: url("../../QuestyjsAssets/UI/BeforeGamePage/Return/ReturnHover.png");
+
+}
+
+#backButton:active {
+    background-image: url("../../QuestyjsAssets/UI/BeforeGamePage/Return/ReturnPressed.png");
+
 }
 
 #faqLink  {
     display: flex;
     justify-content: center;
+    align-items: center;
     position: fixed;
     bottom: 0;
     right: 0;
@@ -106,41 +161,57 @@ body {
 }
 
 #container {
-    display: flex;
     height: 100vh;
     width: 100vw;
     justify-content: center;
     align-items: center;
+    background-image: url("../../QuestyjsAssets/UI/GameOver/GameOverBackground.png");
 }
 
 #gameoverBox {
-    display: flex;
-    height: 80vh;
-    width: 20vw;
+    height: 100vh;
     flex-direction: column;
+    justify-content: space-around;
+    align-items: space-around;
+}
+
+#gameoverBoxContents {
+    height: 60vh;
+    width: 70%;
+    flex-direction: column;
+    justify-content: space-around;
     align-items: center;
-    background-color: coral;
-    border-radius: 50px;
 }
 
 #gameoverBox h1 {
     height: 16%;
 }
 
-#restart, #quit {
-    display: flex;
-    margin-top: 30%;
-    justify-content: center;
-    align-items: center;
-    height: 16%;
-    width: 70%;
-    background-color: lightblue;
-    border-radius: 50px;
+#restart {
+    background-image: url("../../QuestyjsAssets/UI/GameOver/GameOverRestart/GameOverRestartButton.png");
 }
 
-#restart:hover, #quit:hover {
-    background-color: red;
+#restart:hover  {
+    background-image: url("../../QuestyjsAssets/UI/GameOver/GameOverRestart/GameOverRestartButtonHover.png");
 }
+
+#restart:active  {
+    background-image: url("../../QuestyjsAssets/UI/GameOver/GameOverRestart/GameOverRestartButtonPressed.png");
+}
+
+#quit {
+    background-image: url("../../QuestyjsAssets/UI/GameOver/GameOverQuit/GameOverQuitButton.png");
+}
+
+#quit:hover {
+    background-image: url("../../QuestyjsAssets/UI/GameOver/GameOverQuit/GameOverQuitButtonHover.png");
+}
+
+#quit:active {
+    background-image: url("../../QuestyjsAssets/UI/GameOver/GameOverQuit/GameOverQuitButtonPressed.png");
+}
+
+
 
 #monsterStats ,#monsterName ,#gameWrapper ,#gameSCLeft ,#gameSCRight ,#gameInfoWindow ,#playerItemInfoWindow ,#monsterWindow ,#selectWindow form ,#selectWindow ,#monsterWindowTop ,#monsterWindowBottom ,.selectOption {
     display: flex;
@@ -169,15 +240,11 @@ body {
     flex-direction: column;
     overflow: auto;
     background-color: #3B3B3B;
-    font-family: Calibri;
+    font-family: calibri;
     font-size: 3vh;
     color: white;
     padding-left: 3vw;
     background-image: url("../../QuestyjsAssets/UI/Backgrounds/GameInfoView.png");
-    image-rendering: pixelated;
-    background-repeat: no-repeat, repeat;
-    background-size: 100% 100%;
-    background-position: center;
 }
 
 .addedInfo {
@@ -189,10 +256,6 @@ body {
     flex: 3;
     background-color: #9E9E9E;
     background-image: url("../../QuestyjsAssets/UI/Backgrounds/ItenInfoView.png");
-    image-rendering: pixelated;
-    background-repeat: no-repeat, repeat;
-    background-size: 100% 100%;
-    background-position: center;
 }
 
 #playerInfo {
@@ -250,10 +313,6 @@ body {
     flex: 1;
     font-family: Calibri;
     background-image: url("../../QuestyjsAssets/UI/Backgrounds/MonsterWindowTop.png");
-    image-rendering: pixelated;
-    background-size: 100% 100%;
-    background-repeat: no-repeat, repeat;
-    background-position: bottom left;
 }
 
 #monsterName {
@@ -277,10 +336,6 @@ body {
     align-items: center;
     background-color: blue;
     background-image: url("../../QuestyjsAssets/UI/Backgrounds/MonsterView.png");
-    image-rendering: pixelated;
-    background-size: 100% 100%;
-    background-repeat: no-repeat, repeat;
-    background-position: bottom left;
 }
 
 #monsterSprite {
@@ -309,10 +364,6 @@ body {
     height: 100%;
     width: 100%;
     background-image: url("../../QuestyjsAssets/UI/Backgrounds/SelectView.png");
-    image-rendering: pixelated;
-    background-size: 100% 100%;
-    background-repeat: no-repeat, repeat;
-    background-position: bottom left;
 }
 
 #selectWindow button {

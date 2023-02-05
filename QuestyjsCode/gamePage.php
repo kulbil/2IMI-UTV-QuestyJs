@@ -1,6 +1,10 @@
 <?php
     include "includes/functions.inc.php";
     include "header.php";
+    if (!isset($_SESSION["userid"])) {
+        header("location: ../index.php");
+        exit();
+    }
 ?>
 
 <div id=gameWrapper>

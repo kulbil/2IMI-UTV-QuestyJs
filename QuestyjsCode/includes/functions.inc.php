@@ -49,7 +49,7 @@ function createUser($name, $uid, $pwd) {
     $playerDataSer = json_encode($playerData);
 
 
-    $sql = "INSERT INTO users (name, uid, userpwd, playerdata, highscore, joindate) VALUES (?, ?, ?, ?, 0, now());";
+    $sql = "INSERT INTO users (name, uid, userpwd, playerdata, highscore, joindate, rank) VALUES (?, ?, ?, ?, 0, now(), 'user');";
     $stmt = $GLOBALS['conn']->prepare($sql);
     $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
 
@@ -82,16 +82,29 @@ function loginUser($uid, $pwd) {
     } else if (password_verify($pwd, $hashedPwd)) {
         echo "you are logged in";
         
-        session_start();
-        $_SESSION["userid"] = $uidCheck['id'];
-        $_SESSION["useruid"] = $uidCheck['uid'];
-        $_SESSION["userplayerdata"] = $uidCheck['playerdata'];
-        $_SESSION["userhighscore"] = $uidCheck['highscore'];
-        //Player data
-        //[Room Number, Health, Weapon, Healing potion, Zeus Potion, High Score]
+        if(!isset($_SESSION)) { 
+            session_start(); 
+        }
+        
+        if($uidCheck['rank'] == "user") {
+            $_SESSION["userid"] = $uidCheck['id'];
+            $_SESSION["useruid"] = $uidCheck['uid'];
+            $_SESSION["userplayerdata"] = $uidCheck['playerdata'];
+            $_SESSION["userhighscore"] = $uidCheck['highscore'];
+            $_SESSION["userstatus"] = "user";
+            //Player data
+            //[Room Number, Health, Weapon, Healing potion, Zeus Potion, High Score]
+    
+            header("location: ../index.php");
+            exit();
+        } else if ($uidCheck['rank'] == "banned") {
+            $_SESSION["userstatus"] = "banned";
+            header("location: ../banned.php");
+        } else if ($uidCheck['rank'] == "admin") {
+            $_SESSION["userstatus"] = "admin";
+            header("location: ../admin.php");
+        }
 
-        header("location: ../index.php");
-        exit();
     }
 }
 
