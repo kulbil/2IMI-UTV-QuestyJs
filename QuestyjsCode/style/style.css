@@ -85,8 +85,8 @@ body {
 
 #loginBox input, #signupBox input {
     height: 7vh;
-    border-radius: 20px;
-    font-size: 200%;
+    border-radius: 1vw;
+    font-size: 4vh;
 }
 
 #loginBox button, #signupBox button, #restart, #quit {
@@ -94,7 +94,8 @@ body {
     height: 17vh;
     background-color: transparent;
     outline: none;
-    border: none;}
+    border: none;
+}
 
 #loginBox button {
     background-image: url("../../QuestyjsAssets/UI/BeforeGamePage/Login/LogInButton.png");

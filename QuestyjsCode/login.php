@@ -11,6 +11,9 @@
             case "emptylogininput":
                 echo '<script>alert("You need to fill out every box!")</script>';
                 break;
+            case "nouserfound":
+                echo '<script>alert("No user found!")</script>';
+                break;
         }
     }
 
