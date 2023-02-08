@@ -1,5 +1,5 @@
 <?php
-    include_once 'header.php';
+    include 'header.php';
     include "includes/dbh.inc.php";
 
     if(!isset($_SESSION)) { 
@@ -9,10 +9,15 @@
         header("location: index.php");
         exit();
     }
+
+    if(isset($_SESSION['searchedInput'])) {
+        $_SESSION['searchedInput'] = "";
+    }
     
 ?>
 
     <div id="adminContainer">
+        <input type="text" id="userSearch" placeholder="Search for username">
         <div id="userList">
             <table>
                 <th>Id</th>
@@ -21,25 +26,48 @@
                 <th>Highscore</th>
                 <th>Status</th>
                 <th>Action</th>
-            <?php
-                $sql = "SELECT * FROM users WHERE NOT rank like 'admin'";
-                $result = $conn->query($sql);
-
-                while ($row = $result -> fetch_assoc()) {
-                    echo "<tr>
-                        <td>".$row['id']."</td>
-                        <td>".$row['name']."</td>
-                        <td>".$row['uid']."</td>
-                        <td>".$row['highscore']."</td>
-                        <td>".$row['rank']."</td>
-                        <td><button id='banBtn'>Wallah!</button></td>
-                        </tr>";
-                };
-            ?>
             </table>
+            <table id="dbTable">
+                    <?php
+                        $sql = "SELECT * FROM users WHERE NOT rank='admin'";
+                        $result = $conn->query($sql);
+
+                        while ($row = $result -> fetch_assoc()) {
+                            echo "<tr>
+                                <td>".$row['id']."</td>
+                                <td>".$row['name']."</td>
+                                <td>".$row['uid']."</td>
+                                <td>".$row['highscore']."</td>
+                                <td>".$row['rank']."</td>
+                                <td class='buttonColumn'><button class='banBtn ".$row['rank']."' id=".$row['id']." value=".$row['rank'].">Wallah!</button></td>
+                                </tr>";
+                        };
+                    ?>
+                </table>
         </div>
     </div>
 
-<?php
-    include_once 'footer.php';
-?>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        $("#dbTable").on("click", ".banBtn", function(){
+            console.log(this.id);
+            $.post("includes/admin.inc.php", {
+                selectedRowId: this.id,
+                selectedRowRank: this.value
+            }, function(data) {
+                $("#dbTable").html(data);
+            });
+        });
+
+        $("#userSearch").keyup(function(){
+            $.post("includes/admin.inc.php", {
+                searchedInput: this.value
+            }, function(data) {
+                $("#dbTable").html(data);
+            });
+        });
+
+</script>
+</body>
+</html>
+
