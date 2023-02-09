@@ -2,13 +2,20 @@ body {
     margin: 0;
 }
 
+@font-face {
+    font-family: 'minecraftiaregular';
+    src: url('../../questyjsAssets/webfontkit-20230209-064234/minecraft-webfont.woff2') format('woff2'),
+    url('../../questyjsAssets/webfontkit-20230209-064234/minecraft-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 /*display flex*/
 #adminBackground, #adminContainer, #container, #gameoverBoxContents, #gameoverBox, #signupBox button ,#signupBox form, #signupBox, #loginBox form, #loginBox button, #loginBox, #selectWindow form ,#wrapper ,#signupBox form ,#signupBox, #loginMethodBox ,#wrapper {
     display: flex;
 }
 
 /*Pixelart*/
-#adminBackground, #userList, #adminContainer, .user, .banned ,#container, #restart, #quit, #gameoverBoxContents, #gameoverBox, #backButton, #signupBox button, #signupBox, #selectWindow, #monsterWindowBottom, #monsterWindowTop, #playerItemInfoWindow, #gameInfoWindow, #loginBox button, #loginBox, #signupButton, #loginButton, #loginMethodBox, #wrapper {
+#userSearch, #loginBox input, #signupBox input, .deleteBtn ,#adminListContainer, #adminBackground, #userList, #adminContainer, .user, .banned ,#container, #restart, #quit, #gameoverBoxContents, #gameoverBox, #backButton, #signupBox button, #signupBox, #selectWindow, #monsterWindowBottom, #monsterWindowTop, #playerItemInfoWindow, #gameInfoWindow, #loginBox button, #loginBox, #signupButton, #loginButton, #loginMethodBox, #wrapper {
     image-rendering: pixelated;
     background-repeat: no-repeat, repeat;
     background-size: 100% 100%;
@@ -84,9 +91,15 @@ body {
 }
 
 #loginBox input, #signupBox input {
-    height: 7vh;
-    border-radius: 1vw;
+    height: 8vh;
+    padding: 2vh;
     font-size: 4vh;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    font-family: 'minecraftiaregular';
+    background-image: url("../../QuestyjsAssets/UI/BeforeGamePage/InputField.png");
+
 }
 
 #loginBox button, #signupBox button, #restart, #quit {
@@ -241,8 +254,8 @@ body {
     flex-direction: column;
     overflow: auto;
     background-color: #3B3B3B;
-    font-family: calibri;
-    font-size: 3vh;
+    font-family: 'minecraftiaregular';
+    font-size: 2vh;
     color: white;
     padding-left: 3vw;
     background-image: url("../../QuestyjsAssets/UI/Backgrounds/GameInfoView.png");
@@ -296,8 +309,8 @@ body {
 }
 
 #playerItemInfoWindow p {
-    font-size: 200%;
-    font-family: Arial, Helvetica, sans-serif;
+    font-size: 3vh;
+    font-family: 'minecraftiaregular';
     margin: 0;
     margin-left: 2vw;
 }
@@ -312,7 +325,8 @@ body {
 
 #monsterWindowTop {
     flex: 1;
-    font-family: Calibri;
+    font-size: 2vh;
+    font-family: 'minecraftiaregular';
     background-image: url("../../QuestyjsAssets/UI/Backgrounds/MonsterWindowTop.png");
 }
 
@@ -506,7 +520,7 @@ body {
 }
 
 #adminBackground {
-    animation: 1s ease-out 0s 1 slideIn;
+    animation: 0.5s ease-out 0s 1 slideIn;
     transform: translateX(-30%);
     background-image: url("../../QuestyjsAssets/UI/BeforeGamePage/AdminListBackground.png");
     flex-direction: column;
@@ -518,25 +532,53 @@ body {
 }
 
 #adminListContainer {
-    width: 40vw;
-    height: 70vh;
+    background-image: url("../../QuestyjsAssets/UI/BeforeGamePage/AdminBackgroundListList.png");
+    padding: 4vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 60vw;
+    height: 75vh;
+}
+
+#userSearch {
+    margin: auto;
+    height: 8vh;
+    padding: 2vh;
+    font-size: 4vh;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    font-family: 'minecraftiaregular';
+    background-image: url("../../QuestyjsAssets/UI/BeforeGamePage/InputField.png");
+
 }
 
 #userList {
-    width: 40vw;
+    width: 60vw;
     height: 70vh;
     padding: 2vh;
+    overflow: auto;
 }
 
-#dbTable, #tableHeader {
-    width: 90%;
+#dbTable {
+    table-layout: fixed;
+    width: 100%;
+    color: white;
+    font-family: 'minecraftiaregular';
+    font-size: 2vh;
 }
 
-#dbTable tr {
-    height: 5vh;
+#dbTable th {
+    color: white;
+    font-family: 'minecraftiaregular';
+    font-size: 2.4vh;
 }
 
 #dbTable td {
+    color: white;
+    font-family: 'minecraftiaregular';
+    font-size: 2vh;
     width: 5vw;
 }
 
@@ -545,6 +587,14 @@ body {
     border: 0px;
     height: 5vh;
     width: 5vw;
+    font-size: 130%;
+}
+
+.deleteBtn {
+    background-color: transparent;
+    border: 0px;
+    height: 5vh;
+    width: 6.5vw;
     font-size: 130%;
 }
 
@@ -578,6 +628,22 @@ body {
 
 .banned:active {
     background-image: url("../../QuestyjsAssets/UI/BeforeGamePage/UnBan/UnBanButPressed.png")    
+}
+
+/*-----------------------------------------------------------------------------------------------*/
+
+/*Delete Button----------------------------------------------------------------------------------*/
+
+.deleteBtn {
+    background-image: url("../../QuestyjsAssets/UI/BeforeGamePage/delete/deleteBut.png")
+}
+
+.deleteBtn:hover {
+    background-image: url("../../QuestyjsAssets/UI/BeforeGamePage/delete/deleteButHover.png")    
+}
+
+.deleteBtn:active {
+    background-image: url("../../QuestyjsAssets/UI/BeforeGamePage/delete/deleteButPressed.png")    
 }
 
 /*-----------------------------------------------------------------------------------------------*/
