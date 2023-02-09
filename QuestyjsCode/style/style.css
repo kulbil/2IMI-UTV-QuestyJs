@@ -2,6 +2,7 @@ body {
     margin: 0;
 }
 
+/*Custom font*/
 @font-face {
     font-family: 'minecraftiaregular';
     src: url('../../questyjsAssets/webfontkit-20230209-064234/minecraft-webfont.woff2') format('woff2'),
@@ -15,7 +16,7 @@ body {
 }
 
 /*Pixelart*/
-#userSearch, #loginBox input, #signupBox input, .deleteBtn ,#adminListContainer, #adminBackground, #userList, #adminContainer, .user, .banned ,#container, #restart, #quit, #gameoverBoxContents, #gameoverBox, #backButton, #signupBox button, #signupBox, #selectWindow, #monsterWindowBottom, #monsterWindowTop, #playerItemInfoWindow, #gameInfoWindow, #loginBox button, #loginBox, #signupButton, #loginButton, #loginMethodBox, #wrapper {
+#gameOverText, #userSearch, #loginBox input, #signupBox input, .deleteBtn ,#adminListContainer, #adminBackground, #userList, #adminContainer, .user, .banned ,#container, #restart, #quit, #gameoverBoxContents, #gameoverBox, #backButton, #signupBox button, #signupBox, #selectWindow, #monsterWindowBottom, #monsterWindowTop, #playerItemInfoWindow, #gameInfoWindow, #loginBox button, #loginBox, #signupButton, #loginButton, #loginMethodBox, #wrapper {
     image-rendering: pixelated;
     background-repeat: no-repeat, repeat;
     background-size: 100% 100%;
@@ -197,8 +198,10 @@ body {
     align-items: center;
 }
 
-#gameoverBox h1 {
-    height: 16%;
+#gameOverText {
+    height: 15vh;
+    width: 30vw;
+    background-image: url("../../QuestyjsAssets/UI/GameOver/YouDied.png");
 }
 
 #restart {

@@ -5,7 +5,7 @@
 <div id="container">
     <div id="gameoverBox">
         <div id="gameoverBoxContents">
-            <h1>You Died!</h1>
+            <div id="gameOverText"></div>
             <a id="restart" href="index.php"></a>
             <a id="quit" href="includes/gameover.inc.php"></a>
         </div>
