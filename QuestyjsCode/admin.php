@@ -17,34 +17,38 @@
 ?>
 
     <div id="adminContainer">
-        <input type="text" id="userSearch" placeholder="Search for username">
-        <div id="userList">
-            <table>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Username</th>
-                <th>Highscore</th>
-                <th>Status</th>
-                <th>Action</th>
-            </table>
-            <table id="dbTable">
-                    <?php
-                        $sql = "SELECT * FROM users WHERE NOT rank='admin'";
-                        $result = $conn->query($sql);
-
-                        while ($row = $result -> fetch_assoc()) {
-                            echo "<tr>
-                                <td>".$row['id']."</td>
-                                <td>".$row['name']."</td>
-                                <td>".$row['uid']."</td>
-                                <td>".$row['highscore']."</td>
-                                <td>".$row['rank']."</td>
-                                <td class='buttonColumn'><button class='banBtn ".$row['rank']."' id=".$row['id']." value=".$row['rank'].">Wallah!</button></td>
-                                </tr>";
-                        };
-                    ?>
-                </table>
+        <div id="adminBackground">
+            <div id="adminListContainer">
+                <input type="text" id="userSearch" placeholder="Search for username">
+                <div id="userList">
+                    <table id="tableHeader">
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Username</th>
+                        <th>Highscore</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </table>
+                    <table id="dbTable">
+                        <?php
+                            $sql = "SELECT * FROM users WHERE NOT rank='admin'";
+                            $result = $conn->query($sql);
+                            while ($row = $result -> fetch_assoc()) {
+                                echo "<tr>
+                                    <td>".$row['id']."</td>
+                                    <td>".$row['name']."</td>
+                                    <td>".$row['uid']."</td>
+                                    <td>".$row['highscore']."</td>
+                                    <td>".$row['rank']."</td>
+                                    <td class='buttonColumn'><button class='banBtn ".$row['rank']."' id=".$row['id']." value=".$row['rank']."></button></td>
+                                    </tr>";
+                            };
+                        ?>
+                    </table>
+                </div>
+            </div>
         </div>
+        <a href="velgMethod.php" id="backButton"></a>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>

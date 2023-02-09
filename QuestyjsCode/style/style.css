@@ -3,12 +3,12 @@ body {
 }
 
 /*display flex*/
-#container, #gameoverBoxContents, #gameoverBox, #signupBox button ,#signupBox form, #signupBox, #loginBox form, #loginBox button, #loginBox, #selectWindow form ,#wrapper ,#signupBox form ,#signupBox, #loginMethodBox ,#wrapper {
+#adminBackground, #adminContainer, #container, #gameoverBoxContents, #gameoverBox, #signupBox button ,#signupBox form, #signupBox, #loginBox form, #loginBox button, #loginBox, #selectWindow form ,#wrapper ,#signupBox form ,#signupBox, #loginMethodBox ,#wrapper {
     display: flex;
 }
 
 /*Pixelart*/
-#container, #restart, #quit, #gameoverBoxContents, #gameoverBox, #backButton, #signupBox button, #signupBox, #selectWindow, #monsterWindowBottom, #monsterWindowTop, #playerItemInfoWindow, #gameInfoWindow, #loginBox button, #loginBox, #signupButton, #loginButton, #loginMethodBox, #wrapper {
+#adminBackground, #userList, #adminContainer, .user, .banned ,#container, #restart, #quit, #gameoverBoxContents, #gameoverBox, #backButton, #signupBox button, #signupBox, #selectWindow, #monsterWindowBottom, #monsterWindowTop, #playerItemInfoWindow, #gameInfoWindow, #loginBox button, #loginBox, #signupButton, #loginButton, #loginMethodBox, #wrapper {
     image-rendering: pixelated;
     background-repeat: no-repeat, repeat;
     background-size: 100% 100%;
@@ -483,4 +483,101 @@ body {
 #backBut:active {
     background-image: url("../../QuestyjsAssets/UI/SelectVewButtons/Back/BackButPressed.png");
 }
+/*-----------------------------------------------------------------------------------------------*/
+
+/*Admin------------------------------------------------------------------------------------------*/
+
+#adminContainer {
+    background-image: url("../../QuestyjsAssets/UI/BeforeGamePage/VelgMethodBackground.png");
+    height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(-60%);
+    }
+    100% {
+        transform: translateX(-30%);
+    }
+}
+
+#adminBackground {
+    animation: 1s ease-out 0s 1 slideIn;
+    transform: translateX(-30%);
+    background-image: url("../../QuestyjsAssets/UI/BeforeGamePage/AdminListBackground.png");
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    width: 100%;
+    height: 100vh;
+    padding: 2vh;
+}
+
+#adminListContainer {
+    width: 40vw;
+    height: 70vh;
+}
+
+#userList {
+    width: 40vw;
+    height: 70vh;
+    padding: 2vh;
+}
+
+#dbTable, #tableHeader {
+    width: 90%;
+}
+
+#dbTable tr {
+    height: 5vh;
+}
+
+#dbTable td {
+    width: 5vw;
+}
+
+.banned, .user {
+    background-color: transparent;
+    border: 0px;
+    height: 5vh;
+    width: 5vw;
+    font-size: 130%;
+}
+
+
+
+/*Ban Button-------------------------------------------------------------------------------------*/
+
+.user {
+    background-image: url("../../QuestyjsAssets/UI/BeforeGamePage/Ban/BanBut.png")
+}
+
+.user:hover {
+    background-image: url("../../QuestyjsAssets/UI/BeforeGamePage/Ban/BanButHover.png")    
+}
+
+.user:active {
+    background-image: url("../../QuestyjsAssets/UI/BeforeGamePage/Ban/BanButPressed.png")    
+}
+
+/*-----------------------------------------------------------------------------------------------*/
+
+/*UnBan Button-----------------------------------------------------------------------------------*/
+
+.banned {
+    background-image: url("../../QuestyjsAssets/UI/BeforeGamePage/UnBan/UnBanBut.png")
+}
+
+.banned:hover {
+    background-image: url("../../QuestyjsAssets/UI/BeforeGamePage/UnBan/UnBanButHover.png")    
+}
+
+.banned:active {
+    background-image: url("../../QuestyjsAssets/UI/BeforeGamePage/UnBan/UnBanButPressed.png")    
+}
+
 /*-----------------------------------------------------------------------------------------------*/

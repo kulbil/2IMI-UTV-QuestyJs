@@ -14,6 +14,8 @@ if(isset($_POST['searchedInput'])) {
 if(isset($_POST['selectedRowId'])) {
     if(isset($_SESSION['searchedInput'])) {
         $searchedInput = $_SESSION['searchedInput'];
+    } else {
+        $searchedInput = "";
     }
     $selectedRowId = $_POST['selectedRowId'];
     $selectedRowRank = $_POST['selectedRowRank'];
@@ -36,7 +38,7 @@ if(isset($_POST['selectedRowId'])) {
             <td>".$row['uid']."</td>
             <td>".$row['highscore']."</td>
             <td>".$row['rank']."</td>
-            <td class='buttonColumn'><button class='banBtn ".$row['rank']."' id=".$row['id']." value=".$row['rank'].">Wallah!</button></td>
+            <td class='buttonColumn'><button class='banBtn ".$row['rank']."' id=".$row['id']." value=".$row['rank']."></button></td>
             </tr>";
     };
 }
