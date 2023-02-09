@@ -12,6 +12,7 @@
     
     <div id="wrapper">
         <div id="loginMethodBox">
+            <div id="questyTitle"></div>
             <a href="login.php" id="loginButton"></a>
             <a href="signup.php" id="signupButton"></a>
         </div>  

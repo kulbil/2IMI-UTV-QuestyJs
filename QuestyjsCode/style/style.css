@@ -16,7 +16,7 @@ body {
 }
 
 /*Pixelart*/
-#gameOverText, #userSearch, #loginBox input, #signupBox input, .deleteBtn ,#adminListContainer, #adminBackground, #userList, #adminContainer, .user, .banned ,#container, #restart, #quit, #gameoverBoxContents, #gameoverBox, #backButton, #signupBox button, #signupBox, #selectWindow, #monsterWindowBottom, #monsterWindowTop, #playerItemInfoWindow, #gameInfoWindow, #loginBox button, #loginBox, #signupButton, #loginButton, #loginMethodBox, #wrapper {
+#questyTitle, #gameOverText, #userSearch, #loginBox input, #signupBox input, .deleteBtn ,#adminListContainer, #adminBackground, #userList, #adminContainer, .user, .banned ,#container, #restart, #quit, #gameoverBoxContents, #gameoverBox, #backButton, #signupBox button, #signupBox, #selectWindow, #monsterWindowBottom, #monsterWindowTop, #playerItemInfoWindow, #gameInfoWindow, #loginBox button, #loginBox, #signupButton, #loginButton, #loginMethodBox, #wrapper {
     image-rendering: pixelated;
     background-repeat: no-repeat, repeat;
     background-size: 100% 100%;
@@ -109,6 +109,13 @@ body {
     background-color: transparent;
     outline: none;
     border: none;
+}
+
+#questyTitle {
+    height: 30vh;
+    width: 50vw;
+    margin-left: 15vw;
+    background-image: url("../../QuestyjsAssets/UI/BeforeGamePage/QuestyTitle.png");
 }
 
 #loginBox button {
