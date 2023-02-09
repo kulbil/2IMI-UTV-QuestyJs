@@ -9,11 +9,8 @@
         header("location: index.php");
         exit();
     }
+    $_SESSION['searchedInput'] = "";
 
-    if(isset($_SESSION['searchedInput'])) {
-        $_SESSION['searchedInput'] = "";
-    }
-    
 ?>
 
     <div id="adminContainer">
