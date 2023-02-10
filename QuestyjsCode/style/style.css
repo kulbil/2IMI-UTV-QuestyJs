@@ -512,12 +512,52 @@ body {
 }
 #backBut:hover {
     background-image: url("../../QuestyjsAssets/UI/SelectVewButtons/Back/BackButHover.png");
-    
 }
 #backBut:active {
     background-image: url("../../QuestyjsAssets/UI/SelectVewButtons/Back/BackButPressed.png");
 }
 /*-----------------------------------------------------------------------------------------------*/
+
+
+/*FAQ--------------------------------------------------------------------------------------------*/
+
+#faqContainer {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+#faqQuestion1 {
+    display: flex;
+    height: 20vh;
+    width: 40vw;
+    background-color: red;
+}
+
+#faqQ1 {
+    position: relative;
+    height: 92%;
+    width: 92%;
+    background-color: lightblue;
+    z-index: 1;
+}
+
+#faqA1 {
+    position: relative;
+    height: 92%;
+    width: 92%;
+    background-color: blue;
+    z-index: 2;
+}
+
+#faqQuestion1 p {
+    display: none;
+    font-family: calibri;
+}
+
+
+/*-----------------------------------------------------------------------------------------------*/
+
 
 /*Admin------------------------------------------------------------------------------------------*/
 
