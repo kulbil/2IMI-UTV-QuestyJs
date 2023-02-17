@@ -525,34 +525,58 @@ body {
     display: flex;
     height: 100vh;
     width: 100vw;
+    flex-direction: column;
+    margin-top: 2vh;
 }
 
-#faqQuestion1 {
+.faqQuestion {
+    position: relative;
+    left: 10vw;
     display: flex;
-    height: 20vh;
-    width: 40vw;
-    background-color: red;
+    height: 10vh;
+    width: 20vw;
 }
 
 #faqQ1 {
-    position: relative;
-    height: 92%;
-    width: 92%;
+    height: 100%;
+    width: 100%;
     background-color: lightblue;
-    z-index: 1;
+    z-index: 2;
+    border-radius: 2vh;
 }
 
 #faqA1 {
-    position: relative;
-    height: 92%;
-    width: 92%;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 1vh;
+    left: 1vh;
+    border-radius: 2vh;
     background-color: blue;
-    z-index: 2;
+    z-index: 1;
+    transition: left 0.5s ease-in;
 }
 
-#faqQuestion1 p {
-    display: none;
+.faqQuestion1 p {
     font-family: calibri;
+}
+
+@keyframes questionHover {
+    0% {
+        left: 1vh;
+    }
+    10% {
+        left: -2vh;
+    }
+    100% {
+        left: 60vh;
+    }
+}
+
+.faqQuestion:hover #faqA1 {
+    animation: 0.5s ease-in 0s 1 questionHover;
+    background-color: green;
+    left: 60vh;
 }
 
 

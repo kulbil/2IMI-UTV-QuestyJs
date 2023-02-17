@@ -3,14 +3,14 @@
 ?>
 
 <div id="faqContainer">
-    <div id="faqQuestion1">
+    <div class="faqQuestion">
         <div id="faqQ1">
-            <h1 >
+            <p>
                 Hvordan har du det?
-            </h1>
+            </p>
         </div>
         <div id="faqA1">
-            <p id="faqA1">
+            <p>
                 jeg har det veldig bra takk for at du spør :)
             </p>
         </div>
