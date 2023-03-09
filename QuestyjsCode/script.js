@@ -26,7 +26,8 @@ var monsterList = [
     {
         name: "Churida-San",
         strength: 4,
-        health: 16
+        health: 16,
+        sprite: "../QuestyjsAssets/Mobs/Churida-San.gif"
     },
     {  
         name: "Jwoodh",
