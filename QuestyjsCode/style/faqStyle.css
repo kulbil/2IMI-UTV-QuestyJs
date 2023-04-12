@@ -1,0 +1,62 @@
+body {
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes rotate {
+    from {
+        rotate: 0deg;
+    }
+
+    50% {
+        scale: 1 1.5;
+    }
+
+    to {
+        rotate: 360deg;
+    }
+}
+
+#blob {
+    z-index: 0;
+    position: absolute;
+    background-color: white;
+    height: 50vh;
+    aspect-ratio: 1;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    border-radius: 50%;
+    background: linear-gradient(
+        to right,
+        purple,
+        mediumpurple
+    );
+    animation: rotate 10s infinite;
+    filter: blur(100px);
+}
+
+#faqQ1 {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    aspect-ratio: 2;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.1px);
+    transition: all 0.5s;
+}
+
+#faqQ1:hover {
+    height: 200px;
+    aspect-ratio: 1;
+    background: rgba(255, 255, 255, 0.5);
+}

@@ -1,7 +1,8 @@
 <?php
-    include_once 'header.php';
+    include_once 'headerFAQ.php';
 ?>
 
+<div id="blob"></div>
 <div id="faqContainer">
     <div class="faqQuestion">
         <div id="faqQ1">
@@ -16,8 +17,6 @@
         </div>
     </div>
 </div>
-
-
-<?php
-    include_once 'footer.php';
-?>
+<script src="faqscript.js"></script>
+</body>
+</html>
