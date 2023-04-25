@@ -59,15 +59,15 @@ body {
 #signupButton {
     width: 70%;
     height: 17%;
-    background-image: url("../../QuestyjsAssets/UI/BeforeGamePage/Signin/SignInButton.png");
+    background-image: url("../../QuestyjsAssets/UI/BeforeGamePage/SignIn/SignInButton.png");
 }
 
 #signupButton:hover {
-    background-image: url("../../QuestyjsAssets/UI/BeforeGamePage/Signin/SignInButtonHover.png");
+    background-image: url("../../QuestyjsAssets/UI/BeforeGamePage/SignIn/SignInButtonHover.png");
 }
 
 #signupButton:active {
-    background-image: url("../../QuestyjsAssets/UI/BeforeGamePage/Signin/SignInButtonPressed.png");
+    background-image: url("../../QuestyjsAssets/UI/BeforeGamePage/SignIn/SignInButtonPressed.png");
 }
 
 #loginBox, #signupBox, #gameoverBox {
