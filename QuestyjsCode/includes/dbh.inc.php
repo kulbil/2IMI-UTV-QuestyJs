@@ -7,5 +7,4 @@ $password = "";
 $dbName = "questydb";
 
 $conn = mysqli_connect($serverName, $dbUsername, $password, $dbName);
-echo "WHAT ARE YOU DOING STEP BRO?";
 ?>
