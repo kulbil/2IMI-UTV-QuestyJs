@@ -5,8 +5,8 @@ body {
 /*Custom font*/
 @font-face {
     font-family: 'minecraftiaregular';
-    src: url('../../questyjsAssets/webfontkit-20230209-064234/minecraft-webfont.woff2') format('woff2'),
-    url('../../questyjsAssets/webfontkit-20230209-064234/minecraft-webfont.woff') format('woff');
+    src: url('../../QuestyjsAssets/webfontkit-20230209-064234/minecraft-webfont.woff2') format('woff2'),
+    url('../../QuestyjsAssets/webfontkit-20230209-064234/minecraft-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }

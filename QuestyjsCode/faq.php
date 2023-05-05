@@ -63,6 +63,6 @@
     </div>
     
 </div>
-<script src="faqscript.js"></script>
+<script src="faqScript.js"></script>
 </body>
 </html>

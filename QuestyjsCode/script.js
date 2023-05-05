@@ -189,6 +189,7 @@ createPlayer();
 createRoom();
 updMonSts();
 updPIIW();
+$("#hpBarBarPIIW").css("width", "" + currentPlayer.health + "%");
 
 
 //In-game-Button-Events---------------------------------------------------
